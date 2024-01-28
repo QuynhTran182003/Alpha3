@@ -47,17 +47,66 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bussiness Tier\Client.cs" />
+    <Compile Include="Bussiness Tier\IBaseClass.cs" />
+    <Compile Include="Data Tier\ClientDAO.cs" />
     <Compile Include="Data Tier\DatabaseSingleton.cs" />
+    <Compile Include="Data Tier\IDAO.cs" />
+    <Compile Include="Presentation Tier\NewClientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation Tier\NewClientForm.Designer.cs">
+      <DependentUpon>NewClientForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation Tier\Intro.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Presentation Tier\Intro.Designer.cs">
       <DependentUpon>Intro.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentation Tier\ClienPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation Tier\ClienPanel.Designer.cs">
+      <DependentUpon>ClienPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation Tier\NewTripForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation Tier\NewTripForm.Designer.cs">
+      <DependentUpon>NewTripForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation Tier\ReservationPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation Tier\ReservationPanel.Designer.cs">
+      <DependentUpon>ReservationPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation Tier\TripPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation Tier\UserControl1.Designer.cs">
+      <DependentUpon>TripPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Presentation Tier\NewClientForm.resx">
+      <DependentUpon>NewClientForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation Tier\Intro.resx">
       <DependentUpon>Intro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation Tier\ClienPanel.resx">
+      <DependentUpon>ClienPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation Tier\NewTripForm.resx">
+      <DependentUpon>NewTripForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation Tier\ReservationPanel.resx">
+      <DependentUpon>ReservationPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation Tier\UserControl1.resx">
+      <DependentUpon>TripPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -81,8 +130,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Bussiness Tier\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

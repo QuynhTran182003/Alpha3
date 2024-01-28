@@ -32,23 +32,21 @@
             this.btnClient = new System.Windows.Forms.Button();
             this.btnReservation = new System.Windows.Forms.Button();
             this.btnTrip = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnReport = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panContent = new System.Windows.Forms.Panel();
-            this.lbContent = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
+            this.reservationPanel1 = new Alpha3.Presentation_Tier.ReservationPanel();
+            this.tripPanel1 = new Alpha3.Presentation_Tier.TripPanel();
+            this.clienPanel1 = new Alpha3.Presentation_Tier.ClienPanel();
             this.panel1.SuspendLayout();
-            this.panContent.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // lbIntro
             // 
             this.lbIntro.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbIntro.Location = new System.Drawing.Point(770, 27);
+            this.lbIntro.Location = new System.Drawing.Point(831, 43);
             this.lbIntro.Name = "lbIntro";
-            this.lbIntro.Size = new System.Drawing.Size(452, 81);
+            this.lbIntro.Size = new System.Drawing.Size(407, 81);
             this.lbIntro.TabIndex = 0;
             this.lbIntro.Text = "Travel Agent";
             // 
@@ -103,61 +101,35 @@
             this.btnTrip.UseVisualStyleBackColor = false;
             this.btnTrip.Click += new System.EventHandler(this.btnTrip_Click);
             // 
-            // button1
+            // btnReport
             // 
-            this.button1.BackColor = System.Drawing.Color.LightGray;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.button1.Location = new System.Drawing.Point(0, 820);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(346, 69);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Generate Report";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnReport.BackColor = System.Drawing.Color.LightGray;
+            this.btnReport.FlatAppearance.BorderSize = 0;
+            this.btnReport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btnReport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
+            this.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReport.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnReport.Location = new System.Drawing.Point(0, 820);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(346, 69);
+            this.btnReport.TabIndex = 4;
+            this.btnReport.Text = "Generate Report";
+            this.btnReport.UseVisualStyleBackColor = false;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnClient);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnReport);
             this.panel1.Controls.Add(this.btnTrip);
             this.panel1.Controls.Add(this.btnReservation);
             this.panel1.Location = new System.Drawing.Point(2, 1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(346, 926);
             this.panel1.TabIndex = 6;
-            // 
-            // panContent
-            // 
-            this.panContent.Controls.Add(this.lbContent);
-            this.panContent.Controls.Add(this.dataGridView1);
-            this.panContent.Location = new System.Drawing.Point(404, 157);
-            this.panContent.Name = "panContent";
-            this.panContent.Size = new System.Drawing.Size(1080, 726);
-            this.panContent.TabIndex = 7;
-            // 
-            // lbContent
-            // 
-            this.lbContent.AutoSize = true;
-            this.lbContent.Location = new System.Drawing.Point(3, 9);
-            this.lbContent.Name = "lbContent";
-            this.lbContent.Size = new System.Drawing.Size(0, 32);
-            this.lbContent.TabIndex = 4;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 199);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 102;
-            this.dataGridView1.RowTemplate.Height = 40;
-            this.dataGridView1.Size = new System.Drawing.Size(1080, 524);
-            this.dataGridView1.TabIndex = 0;
             // 
             // label1
             // 
@@ -169,23 +141,46 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Dashboard";
             // 
+            // reservationPanel1
+            // 
+            this.reservationPanel1.Location = new System.Drawing.Point(438, 171);
+            this.reservationPanel1.Name = "reservationPanel1";
+            this.reservationPanel1.Size = new System.Drawing.Size(1130, 729);
+            this.reservationPanel1.TabIndex = 11;
+            // 
+            // tripPanel1
+            // 
+            this.tripPanel1.Location = new System.Drawing.Point(438, 175);
+            this.tripPanel1.Name = "tripPanel1";
+            this.tripPanel1.Size = new System.Drawing.Size(1135, 728);
+            this.tripPanel1.TabIndex = 10;
+            this.tripPanel1.Visible = false;
+            // 
+            // clienPanel1
+            // 
+            this.clienPanel1.Location = new System.Drawing.Point(438, 175);
+            this.clienPanel1.Name = "clienPanel1";
+            this.clienPanel1.Size = new System.Drawing.Size(1137, 725);
+            this.clienPanel1.TabIndex = 9;
+            this.clienPanel1.Visible = false;
+            // 
             // IntroForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1531, 926);
-            this.Controls.Add(this.panContent);
+            this.ClientSize = new System.Drawing.Size(1607, 928);
+            this.Controls.Add(this.reservationPanel1);
+            this.Controls.Add(this.tripPanel1);
+            this.Controls.Add(this.clienPanel1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lbIntro);
             this.Name = "IntroForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Your Travel Agent";
+            this.Load += new System.EventHandler(this.IntroForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panContent.ResumeLayout(false);
-            this.panContent.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -196,12 +191,12 @@
         private System.Windows.Forms.Button btnClient;
         private System.Windows.Forms.Button btnReservation;
         private System.Windows.Forms.Button btnTrip;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnReport;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panContent;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label lbContent;
         private System.Windows.Forms.Label label1;
+        private Presentation_Tier.ClienPanel clienPanel1;
+        private Presentation_Tier.TripPanel tripPanel1;
+        private Presentation_Tier.ReservationPanel reservationPanel1;
     }
 }
 
