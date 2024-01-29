@@ -90,7 +90,7 @@ namespace Alpha3.Data_Tier
 
         public void Update(int id, Client newEle)
         {
-            SqlCommand cmd = new SqlCommand("update Client set name = @Name, surname = @Surname, email = @Email, phone = @Phone where id = @Id ", DatabaseSingleton.GetInstance());
+            SqlCommand cmd = new SqlCommand("update Client set Name = @Name, Surname = @Surname, Email = @Email, Phone = @Phone where ID = @Id ", DatabaseSingleton.GetInstance());
             cmd.Parameters.AddWithValue("@Id", id);
             cmd.Parameters.AddWithValue("@Name", newEle.Name);
             cmd.Parameters.AddWithValue("@Surname", newEle.Surname);

@@ -24,25 +24,14 @@ namespace Alpha3.Presentation_Tier
         private void btnAdd_Click(object sender, EventArgs e)
         {
             // Here add to db
-            if (this.tBxEmail.Text == "" || this.tBxName.Text == "" || this.tBxSurname.Text == "")
-            {
-                MessageBox.Show("Field Email, Name and Surname must be filled in.");
-            }
-            else
-            {
-                string name = this.tBxName.Text;
-                string surname = this.tBxSurname.Text;
-                string email = this.tBxEmail.Text;
-                string phone = tBxPhone.Text;
-                Client c = new Client(name, surname, email, phone);
-                /*ClientDAO clientDAO = new ClientDAO();
-                clientDAO.Save(c);*/
-                c.AddToDB();
-                
-                this.Hide();
-                this.clientPanel.LoadClient();
-                //this.customerOptions.CustomerOptions_Load(sender, e);
-            }
+            string name = this.tBxName.Text;
+            string surname = this.tBxSurname.Text;
+            string email = this.tBxEmail.Text;
+            string phone = tBxPhone.Text;
+            Client c = new Client(name, surname, email, phone);
+            c.AddToDB();
+            this.Hide();
+            this.clientPanel.LoadClient();
         }
     }
 }

@@ -42,16 +42,30 @@ namespace Alpha3.Bussiness_Tier
 
         public Client(string name, string surname, string email, string phone)
         {
-            Name = name;
-            Surname = surname;
-            Email = email;
-            Phone = phone;
+            if (name == "" || surname == "" || email == "")
+            {
+                MessageBox.Show("Constructor: Field Email, Name and Surname must be filled in.");
+            }
+            else
+            {
+                Name = name;
+                Surname = surname;
+                Email = email;
+                Phone = phone;
+            }
+            
         }
     
         public void AddToDB()
         {
             ClientDAO clientDAO = new ClientDAO();
             clientDAO.Save(this);
+        }
+
+        public void UpdateDB()
+        {
+            ClientDAO clientDAO = new ClientDAO();
+            clientDAO.Update(id, this);
         }
     }
 }

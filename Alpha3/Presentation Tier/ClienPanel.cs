@@ -29,23 +29,36 @@ namespace Alpha3.Presentation_Tier
         {
             ClientDAO clientDAO = new ClientDAO();
             clientDAO.GetAll(this.dataGridView1);
-            SqlCommand cmd = new SqlCommand("select * from Client", DatabaseSingleton.GetInstance());
-            try
-            {
-                cmd.ExecuteNonQuery();
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            this.dataGridView1.DataSource = dt;
-
-            DatabaseSingleton.CloseConnection();
         }
 
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int id = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["Id"].FormattedValue.ToString());
+            string name = dataGridView1.Rows[e.RowIndex].Cells["Name"].FormattedValue.ToString();
+            string surname = dataGridView1.Rows[e.RowIndex].Cells["Surname"].FormattedValue.ToString();
+            string email = dataGridView1.Rows[e.RowIndex].Cells["Email"].FormattedValue.ToString();
+            string phone = dataGridView1.Rows[e.RowIndex].Cells["Telephone"].FormattedValue.ToString();
+
+            EditClientForm edf = new EditClientForm(id, name, surname, email, phone, this);
+            edf.ShowDialog();
+        }
+
+        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                string name = dataGridView1.Rows[e.RowIndex].Cells["Name"].FormattedValue.ToString();
+                string surname = dataGridView1.Rows[e.RowIndex].Cells["Surname"].FormattedValue.ToString();
+                if (MessageBox.Show($"Are u sure to delete client {name} {surname}?", "Delete client", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    {
+                        ClientDAO clientDAO = new ClientDAO();
+                        int id = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id"].FormattedValue.ToString());
+                        clientDAO.Delete(id);
+                        this.LoadClient();
+                    }
+                }
+            }
+        }
     }
 }

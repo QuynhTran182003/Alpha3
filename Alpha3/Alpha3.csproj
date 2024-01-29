@@ -52,6 +52,12 @@
     <Compile Include="Data Tier\ClientDAO.cs" />
     <Compile Include="Data Tier\DatabaseSingleton.cs" />
     <Compile Include="Data Tier\IDAO.cs" />
+    <Compile Include="Presentation Tier\EditClientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation Tier\EditClientForm.Designer.cs">
+      <DependentUpon>EditClientForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation Tier\NewClientForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +96,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Presentation Tier\EditClientForm.resx">
+      <DependentUpon>EditClientForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation Tier\NewClientForm.resx">
       <DependentUpon>NewClientForm.cs</DependentUpon>
     </EmbeddedResource>
