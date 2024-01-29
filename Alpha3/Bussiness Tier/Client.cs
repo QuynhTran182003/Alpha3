@@ -2,6 +2,7 @@
 using Alpha3.Presentation_Tier;
 using System;
 using System.Collections.Generic;
+using System.Deployment.Internal;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -62,7 +63,7 @@ namespace Alpha3.Bussiness_Tier
             clientDAO.Save(this);
         }
 
-        public void UpdateDB()
+        public void UpdateDB(int id)
         {
             ClientDAO clientDAO = new ClientDAO();
             clientDAO.Update(id, this);

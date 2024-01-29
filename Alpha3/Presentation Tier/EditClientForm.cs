@@ -22,18 +22,20 @@ namespace Alpha3.Presentation_Tier
             tBxSurname.Text = sn;
             tBxEmail.Text = mai;
             tBxPhone.Text = phone;
-            this.cliPanel = cliPan;
+            cliPanel = cliPan;
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            int id = int.Parse(lbId.Text);
             string name = tBxName.Text;
             string surname = tBxSurname.Text;
             string email = tBxEmail.Text;
             string phone = tBxPhone.Text;
             Bussiness_Tier.Client newCli = new Bussiness_Tier.Client(name, surname, email, phone);
-            newCli.UpdateDB();
-            this.cliPanel.LoadClient();
+            newCli.UpdateDB(id);
+            this.Hide();
+            cliPanel.LoadClient();
             
         }
     }
