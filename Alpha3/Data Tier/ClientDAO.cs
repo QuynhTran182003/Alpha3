@@ -79,13 +79,12 @@ namespace Alpha3.Data_Tier
             try
             {
                 cmd.ExecuteNonQuery();
-                //MessageBox.Show("Successfully saved.");
+                MessageBox.Show("client added");
             }
             catch (SqlException ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
             DatabaseSingleton.CloseConnection();
         }
 

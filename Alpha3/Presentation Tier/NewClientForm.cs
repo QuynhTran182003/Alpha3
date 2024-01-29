@@ -7,22 +7,42 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Alpha3.Data_Tier;
+using Alpha3.Bussiness_Tier;
 
 namespace Alpha3.Presentation_Tier
 {
     public partial class NewClientForm : Form
     {
-        public NewClientForm()
+        private ClienPanel clientPanel;
+        public NewClientForm(ClienPanel clienPanel)
         {
             InitializeComponent();
+            clientPanel = clienPanel;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             // Here add to db
-            MessageBox.Show("OK!");
-            this.Hide();
-            //this.customerOptions.CustomerOptions_Load(sender, e);
+            if (this.tBxEmail.Text == "" || this.tBxName.Text == "" || this.tBxSurname.Text == "")
+            {
+                MessageBox.Show("Field Email, Name and Surname must be filled in.");
+            }
+            else
+            {
+                string name = this.tBxName.Text;
+                string surname = this.tBxSurname.Text;
+                string email = this.tBxEmail.Text;
+                string phone = tBxPhone.Text;
+                Client c = new Client(name, surname, email, phone);
+                /*ClientDAO clientDAO = new ClientDAO();
+                clientDAO.Save(c);*/
+                c.AddToDB();
+                
+                this.Hide();
+                this.clientPanel.LoadClient();
+                //this.customerOptions.CustomerOptions_Load(sender, e);
+            }
         }
     }
 }

@@ -1,8 +1,12 @@
-﻿using System;
+﻿using Alpha3.Data_Tier;
+using Alpha3.Presentation_Tier;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Alpha3.Bussiness_Tier
 {
@@ -17,15 +21,23 @@ namespace Alpha3.Bussiness_Tier
         public int Id { get => id; set => id = value; }
         public string Name { get => name; set => name = value; }
         public string Surname { get => surname; set => surname = value; }
-        public string Email { get => surname; set => surname = value; }
+        public string Email { get => email; set => email = value; }
         public string Phone { get => phone; set => phone = value; }
 
         public Client() { }
         public Client(string name, string surname, string email)
         {
-            Name = name;
-            Surname = surname;
-            Email = email;
+            if (name == null || surname == null || email == null)
+            {
+                MessageBox.Show("Field Email, Name and Surname must be filled in.");
+            }
+            else
+            {
+                Name = name;
+                Surname = surname;
+                Email = email;
+            }
+           
         }
 
         public Client(string name, string surname, string email, string phone)
@@ -34,6 +46,12 @@ namespace Alpha3.Bussiness_Tier
             Surname = surname;
             Email = email;
             Phone = phone;
+        }
+    
+        public void AddToDB()
+        {
+            ClientDAO clientDAO = new ClientDAO();
+            clientDAO.Save(this);
         }
     }
 }

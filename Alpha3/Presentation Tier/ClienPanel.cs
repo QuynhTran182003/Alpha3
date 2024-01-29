@@ -21,7 +21,7 @@ namespace Alpha3.Presentation_Tier
 
         private void btnNewClient_Click(object sender, EventArgs e)
         {
-            NewClientForm frm = new NewClientForm();
+            NewClientForm frm = new NewClientForm(this);
             frm.ShowDialog();
         }
 
@@ -46,5 +46,6 @@ namespace Alpha3.Presentation_Tier
 
             DatabaseSingleton.CloseConnection();
         }
+
     }
 }

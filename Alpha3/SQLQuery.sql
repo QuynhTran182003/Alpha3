@@ -34,3 +34,24 @@ VALUES
     ('Doe', 'John', 'john.doe@example.com', '+420 777 688 866'),
     ('Smith', 'Jane', 'jane.smith@example.com', '+420 774 890 743'),
     ('Johnson', 'Bob', 'bob.johnson@example.com', NULL);
+
+
+CREATE TABLE Trip(
+	ID int primary key identity(1,1),
+	Id_transport int foreign key references Transport(ID),
+	Id_hotel int foreign key references Hotel(ID),
+	Id_departCity int foreign key references City(ID),
+	Id_destinationCity int foreign key references City(ID),
+	Date_depart date,
+	Date_return date,
+	Price decimal not null check (price > 0)
+);
+
+CREATE TABLE Reservation(
+	ID int primary key identity(1,1),
+	Id_client int foreign key references Client(ID),
+	Id_trip int foreign key references Trip(ID),
+	Number_pple int check(number_pple >= 1),
+	Date_reservation datetime,
+	[Status] bit
+)
