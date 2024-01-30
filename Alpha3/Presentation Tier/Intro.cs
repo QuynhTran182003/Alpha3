@@ -16,6 +16,9 @@ namespace Alpha3
         public IntroForm()
         {
             InitializeComponent();
+            tripPanel1.Visible = false;
+            reservationPanel1.Visible = false;
+            clienPanel1.Visible = false;
         }
 
         private void btnClient_Click(object sender, EventArgs e)
@@ -46,7 +49,8 @@ namespace Alpha3
 
         private void btnReport_Click(object sender, EventArgs e)
         {
-
+            //ReportForm reportForm = new ReportForm();
+            //reportForm.ShowDialog();
         }
 
         private void btnNewClient_Click(object sender, EventArgs e)

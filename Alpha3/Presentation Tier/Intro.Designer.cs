@@ -38,6 +38,8 @@
             this.reservationPanel1 = new Alpha3.Presentation_Tier.ReservationPanel();
             this.tripPanel1 = new Alpha3.Presentation_Tier.TripPanel();
             this.clienPanel1 = new Alpha3.Presentation_Tier.ClienPanel();
+            this.btnHotel = new System.Windows.Forms.Button();
+            this.btnCity = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -121,6 +123,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.panel1.Controls.Add(this.btnHotel);
+            this.panel1.Controls.Add(this.btnCity);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnClient);
             this.panel1.Controls.Add(this.btnReport);
@@ -128,14 +132,14 @@
             this.panel1.Controls.Add(this.btnReservation);
             this.panel1.Location = new System.Drawing.Point(2, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(346, 926);
+            this.panel1.Size = new System.Drawing.Size(348, 982);
             this.panel1.TabIndex = 6;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(69, 61);
+            this.label1.Location = new System.Drawing.Point(71, 42);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(224, 46);
             this.label1.TabIndex = 4;
@@ -164,12 +168,44 @@
             this.clienPanel1.TabIndex = 9;
             this.clienPanel1.Visible = false;
             // 
+            // btnHotel
+            // 
+            this.btnHotel.BackColor = System.Drawing.Color.LightGray;
+            this.btnHotel.FlatAppearance.BorderSize = 0;
+            this.btnHotel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btnHotel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
+            this.btnHotel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHotel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHotel.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnHotel.Location = new System.Drawing.Point(3, 522);
+            this.btnHotel.Name = "btnHotel";
+            this.btnHotel.Size = new System.Drawing.Size(343, 63);
+            this.btnHotel.TabIndex = 6;
+            this.btnHotel.Text = "Hotel";
+            this.btnHotel.UseVisualStyleBackColor = false;
+            // 
+            // btnCity
+            // 
+            this.btnCity.BackColor = System.Drawing.Color.LightGray;
+            this.btnCity.FlatAppearance.BorderSize = 0;
+            this.btnCity.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btnCity.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
+            this.btnCity.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCity.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnCity.Location = new System.Drawing.Point(3, 635);
+            this.btnCity.Name = "btnCity";
+            this.btnCity.Size = new System.Drawing.Size(345, 65);
+            this.btnCity.TabIndex = 5;
+            this.btnCity.Text = "City";
+            this.btnCity.UseVisualStyleBackColor = false;
+            // 
             // IntroForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1607, 928);
+            this.ClientSize = new System.Drawing.Size(1691, 980);
             this.Controls.Add(this.reservationPanel1);
             this.Controls.Add(this.tripPanel1);
             this.Controls.Add(this.clienPanel1);
@@ -197,6 +233,8 @@
         private Presentation_Tier.ClienPanel clienPanel1;
         private Presentation_Tier.TripPanel tripPanel1;
         private Presentation_Tier.ReservationPanel reservationPanel1;
+        private System.Windows.Forms.Button btnHotel;
+        private System.Windows.Forms.Button btnCity;
     }
 }
 

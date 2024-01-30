@@ -1,4 +1,5 @@
-﻿using Alpha3.Data_Tier;
+﻿using Alpha3.Bussiness_Tier;
+using Alpha3.Data_Tier;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -52,9 +53,10 @@ namespace Alpha3.Presentation_Tier
                 if (MessageBox.Show($"Are u sure to delete client {name} {surname}?", "Delete client", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     {
-                        ClientDAO clientDAO = new ClientDAO();
-                        int id = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id"].FormattedValue.ToString());
-                        clientDAO.Delete(id);
+                        int id = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["Id"].FormattedValue.ToString());
+                        Client client = new Client(id);
+
+                        client.Delete(id);
                         this.LoadClient();
                     }
                 }

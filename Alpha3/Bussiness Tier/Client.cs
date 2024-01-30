@@ -26,47 +26,73 @@ namespace Alpha3.Bussiness_Tier
         public string Phone { get => phone; set => phone = value; }
 
         public Client() { }
+        public Client(int id)
+        {
+            Id = id;
+        }
         public Client(string name, string surname, string email)
         {
-            if (name == null || surname == null || email == null)
+            try
             {
-                MessageBox.Show("Field Email, Name and Surname must be filled in.");
+                if (name == null || surname == null || email == null)
+                {
+                    MessageBox.Show("Field Email, Name and Surname must be filled in.");
+                }
+                else
+                {
+                    Name = name;
+                    Surname = surname;
+                    Email = email;
+                }
             }
-            else
+            catch
             {
-                Name = name;
-                Surname = surname;
-                Email = email;
-            }
-           
-        }
-
-        public Client(string name, string surname, string email, string phone)
-        {
-            if (name == "" || surname == "" || email == "")
-            {
-                MessageBox.Show("Constructor: Field Email, Name and Surname must be filled in.");
-            }
-            else
-            {
-                Name = name;
-                Surname = surname;
-                Email = email;
-                Phone = phone;
+                throw;
             }
             
+           
+        }
+        public Client(string name, string surname, string email, string phone)
+        {
+            try
+            {
+                if (name == "" || surname == "" || email == "")
+                {
+                    MessageBox.Show("Constructor: Field Email, Name and Surname must be filled in.");
+                }
+                else
+                {
+                    Name = name;
+                    Surname = surname;
+                    Email = email;
+                    Phone = phone;
+                }
+            }
+            catch {
+                throw;
+            }
         }
     
         public void AddToDB()
         {
             ClientDAO clientDAO = new ClientDAO();
             clientDAO.Save(this);
+            //error handling
         }
 
         public void UpdateDB(int id)
         {
             ClientDAO clientDAO = new ClientDAO();
             clientDAO.Update(id, this);
+            //error handling
+        }
+
+        public void Delete(int id)
+        {
+            ClientDAO clientDAO = new ClientDAO();
+            clientDAO.Delete(id);
+            //error handling
+
         }
     }
 }

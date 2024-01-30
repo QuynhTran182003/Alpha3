@@ -55,3 +55,8 @@ CREATE TABLE Reservation(
 	Date_reservation datetime,
 	[Status] bit
 )
+
+INSERT INTO Transport([Type]) VALUES ('Airplane'), ('Bus'), ('Train')
+INSERT INTO Transport([Type]) VALUES ('Private Transport')
+
+select * from Transport;
