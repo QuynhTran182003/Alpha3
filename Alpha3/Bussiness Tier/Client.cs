@@ -94,5 +94,13 @@ namespace Alpha3.Bussiness_Tier
             //error handling
 
         }
+
+        public void GetAllDB(DataGridView dataGridView)
+        {
+            ClientDAO clientDAO = new ClientDAO();
+            clientDAO.GetAll(dataGridView);
+            //error handling
+
+        }
     }
 }

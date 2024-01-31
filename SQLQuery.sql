@@ -58,5 +58,21 @@ CREATE TABLE Reservation(
 
 INSERT INTO Transport([Type]) VALUES ('Airplane'), ('Bus'), ('Train')
 INSERT INTO Transport([Type]) VALUES ('Private Transport')
+ALTER TABLE City
+ADD Abbreviation VARCHAR(10) NOT NULL;
 
-select * from Transport;
+INSERT INTO Hotel ([Name], Street, Number1, Number2, Postcode, Quality)
+VALUES
+    ('Grand Hotel', 'Main Street', 123, NULL, '12345', 4),
+    ('City View Inn', 'Downtown Avenue', 456, 789, '67890', 3),
+    ('Cozy Retreat', 'Quiet Lane', 789, NULL, '98765', 5);
+
+-- Insert three records into the City table with Name and Abbreviation
+INSERT INTO City (Name, Abbreviation)
+VALUES
+    ('New York', 'NY'),
+    ('London', 'LDN'),
+    ('Paris', 'PRS');
+
+
+select [Name] from Hotel;

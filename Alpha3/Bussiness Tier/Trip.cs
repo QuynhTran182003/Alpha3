@@ -1,0 +1,63 @@
+﻿using Alpha3.Data_Tier;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Alpha3.Bussiness_Tier
+{
+    public class Trip : IBaseClass<Trip>
+    {
+        private int id_transport;
+        private int id_hotel;
+        private int id_departCity;
+        private int id_destinationCity;
+        private DateTime date_depart;
+        private DateTime date_return;
+        private float price;
+        
+        public int Id { get => Id; set => Id = value;}
+        public int Id_transport { get => id_transport; set => id_transport = value;}
+        public int Id_hotel { get => id_hotel; set => id_hotel = value;}
+        public int Id_departCity { get => id_departCity; set => id_departCity = value;}
+        public int Id_destinationCity { get => id_destinationCity; set => id_destinationCity = value;}
+        public DateTime Date_depart { get => date_depart; set => date_depart = value;}
+        public DateTime Date_return { get => date_return; set => date_return = value;}
+        public float Price { get => price; set => price = value; }
+
+
+
+        public void AddToDB()
+        {
+            TripDAO clientDAO = new TripDAO();
+            clientDAO.Save(this);
+            //error handling
+        }
+
+        public void UpdateDB(int id)
+        {
+            TripDAO tripDAO = new TripDAO();
+            tripDAO.Update(id, this);
+            //error handling
+        }
+
+        public void Delete(int id)
+        {
+            TripDAO tripDAO = new TripDAO();
+            tripDAO.Delete(id);
+            //error handling
+
+        }
+
+        public void GetAllDB(DataGridView dataGridView)
+        {
+            TripDAO tripDAO = new TripDAO();
+            tripDAO.GetAll(dataGridView);
+            //error handling
+
+        }
+    }
+}

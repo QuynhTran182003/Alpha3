@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Alpha3.Data_Tier;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,6 +22,12 @@ namespace Alpha3.Presentation_Tier
         {
             NewTripForm ntf = new NewTripForm();
             ntf.ShowDialog();
+        }
+
+        public void LoadTrip()
+        {
+            TripDAO tripDAO = new TripDAO();
+            tripDAO.GetAll(this.dataGridView1);
         }
     }
 }

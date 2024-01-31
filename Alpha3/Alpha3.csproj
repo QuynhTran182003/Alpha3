@@ -49,9 +49,11 @@
   <ItemGroup>
     <Compile Include="Bussiness Tier\Client.cs" />
     <Compile Include="Bussiness Tier\IBaseClass.cs" />
+    <Compile Include="Bussiness Tier\Trip.cs" />
     <Compile Include="Data Tier\ClientDAO.cs" />
     <Compile Include="Data Tier\DatabaseSingleton.cs" />
     <Compile Include="Data Tier\IDAO.cs" />
+    <Compile Include="Data Tier\TripDAO.cs" />
     <Compile Include="Presentation Tier\EditClientForm.cs">
       <SubType>Form</SubType>
     </Compile>

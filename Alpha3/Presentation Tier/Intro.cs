@@ -34,7 +34,7 @@ namespace Alpha3
             clienPanel1.Visible=false;
             reservationPanel1.Visible = false;
             tripPanel1.Visible = true;
-            //tripPanel1.LoadTrip();
+            tripPanel1.LoadTrip();
 
         }
 

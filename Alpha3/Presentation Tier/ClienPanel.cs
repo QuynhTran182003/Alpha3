@@ -28,8 +28,8 @@ namespace Alpha3.Presentation_Tier
 
         public void LoadClient()
         {
-            ClientDAO clientDAO = new ClientDAO();
-            clientDAO.GetAll(this.dataGridView1);
+            Client client = new Client();
+            client.GetAllDB(this.dataGridView1);
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

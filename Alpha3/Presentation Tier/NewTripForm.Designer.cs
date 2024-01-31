@@ -35,10 +35,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.comboTransport = new System.Windows.Forms.ComboBox();
+            this.comboHotel = new System.Windows.Forms.ComboBox();
+            this.comboCity = new System.Windows.Forms.ComboBox();
+            this.comboCity2 = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -109,37 +109,37 @@
             this.label7.TabIndex = 6;
             this.label7.Text = "Price:";
             // 
-            // comboBox1
+            // comboTransport
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(271, 276);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(469, 39);
-            this.comboBox1.TabIndex = 7;
+            this.comboTransport.FormattingEnabled = true;
+            this.comboTransport.Location = new System.Drawing.Point(271, 276);
+            this.comboTransport.Name = "comboTransport";
+            this.comboTransport.Size = new System.Drawing.Size(469, 39);
+            this.comboTransport.TabIndex = 7;
             // 
-            // comboBox2
+            // comboHotel
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(271, 523);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(469, 39);
-            this.comboBox2.TabIndex = 8;
+            this.comboHotel.FormattingEnabled = true;
+            this.comboHotel.Location = new System.Drawing.Point(271, 523);
+            this.comboHotel.Name = "comboHotel";
+            this.comboHotel.Size = new System.Drawing.Size(469, 39);
+            this.comboHotel.TabIndex = 8;
             // 
-            // comboBox3
+            // comboCity
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(271, 356);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(469, 39);
-            this.comboBox3.TabIndex = 9;
+            this.comboCity.FormattingEnabled = true;
+            this.comboCity.Location = new System.Drawing.Point(271, 356);
+            this.comboCity.Name = "comboCity";
+            this.comboCity.Size = new System.Drawing.Size(469, 39);
+            this.comboCity.TabIndex = 9;
             // 
-            // comboBox4
+            // comboCity2
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(271, 440);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(469, 39);
-            this.comboBox4.TabIndex = 10;
+            this.comboCity2.FormattingEnabled = true;
+            this.comboCity2.Location = new System.Drawing.Point(271, 440);
+            this.comboCity2.Name = "comboCity2";
+            this.comboCity2.Size = new System.Drawing.Size(469, 39);
+            this.comboCity2.TabIndex = 10;
             // 
             // dateTimePicker1
             // 
@@ -192,10 +192,10 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.comboBox4);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboCity2);
+            this.Controls.Add(this.comboCity);
+            this.Controls.Add(this.comboHotel);
+            this.Controls.Add(this.comboTransport);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
@@ -205,6 +205,7 @@
             this.Controls.Add(this.label1);
             this.Name = "NewTripForm";
             this.Text = "NewTripForm";
+            this.Load += new System.EventHandler(this.NewTripForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -219,10 +220,10 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox comboTransport;
+        private System.Windows.Forms.ComboBox comboHotel;
+        private System.Windows.Forms.ComboBox comboCity;
+        private System.Windows.Forms.ComboBox comboCity2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.TextBox textBox1;
