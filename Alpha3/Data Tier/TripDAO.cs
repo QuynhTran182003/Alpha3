@@ -24,7 +24,25 @@ namespace Alpha3.Data_Tier
 
         public void Save(Trip ele)
         {
-            throw new NotImplementedException();
+            SqlCommand cmd = new SqlCommand("" +
+                "INSERT INTO Trip (Id_transport, Id_hotel, Id_departCity, Id_destinationCity, Date_depart, Date_return, Price)\r\nVALUES\r\n    (@Id_Trans, @Id_Hotel, @Id_Depart, @Id_Destination, @Date_depart, '@Date_return, @Price);", 
+                DatabaseSingleton.GetInstance());
+            cmd.Parameters.AddWithValue("@Id_Trans", ele.Id_transport);
+            cmd.Parameters.AddWithValue("@Id_Hotel", ele.Id_hotel);
+            cmd.Parameters.AddWithValue("@Id_Depart", ele.Id_departCity);
+            cmd.Parameters.AddWithValue("@Id_Destination", ele.Id_destinationCity);
+            cmd.Parameters.AddWithValue("@Date_depart", ele.Date_depart);
+            cmd.Parameters.AddWithValue("@Date_return", ele.Date_return);
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Trip added");
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            DatabaseSingleton.CloseConnection();
         }
 
         public void Update(int id, Trip newEle)

@@ -41,7 +41,7 @@
             this.comboCity2 = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tBxPrice = new System.Windows.Forms.TextBox();
             this.btnNewTrip = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -155,12 +155,12 @@
             this.dateTimePicker2.Size = new System.Drawing.Size(446, 38);
             this.dateTimePicker2.TabIndex = 12;
             // 
-            // textBox1
+            // tBxPrice
             // 
-            this.textBox1.Location = new System.Drawing.Point(271, 620);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(469, 38);
-            this.textBox1.TabIndex = 13;
+            this.tBxPrice.Location = new System.Drawing.Point(271, 620);
+            this.tBxPrice.Name = "tBxPrice";
+            this.tBxPrice.Size = new System.Drawing.Size(469, 38);
+            this.tBxPrice.TabIndex = 13;
             // 
             // btnNewTrip
             // 
@@ -189,7 +189,7 @@
             this.ClientSize = new System.Drawing.Size(1373, 746);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btnNewTrip);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tBxPrice);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.comboCity2);
@@ -226,7 +226,7 @@
         private System.Windows.Forms.ComboBox comboCity2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tBxPrice;
         private System.Windows.Forms.Button btnNewTrip;
         private System.Windows.Forms.Label label8;
     }

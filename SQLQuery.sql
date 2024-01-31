@@ -75,4 +75,9 @@ VALUES
     ('Paris', 'PRS');
 
 
-select [Name] from Hotel;
+	select * from City;
+INSERT INTO Trip (Id_transport, Id_hotel, Id_departCity, Id_destinationCity, Date_depart, Date_return, Price)
+VALUES
+    (4, 4, 1, 2, '2024-02-01', '2024-02-10', 1500.00),
+    (5, 3, 2, 1, '2024-03-15', '2024-03-25', 2000.00),
+    (3, 2, 3, 3, '2024-04-20', '2024-04-30', 1800.00);

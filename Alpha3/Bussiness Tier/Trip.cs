@@ -28,12 +28,21 @@ namespace Alpha3.Bussiness_Tier
         public DateTime Date_return { get => date_return; set => date_return = value;}
         public float Price { get => price; set => price = value; }
 
-
+        public Trip(int id_transport, int id_hotel, int id_departCity, int id_destinationCity, DateTime date_depart, DateTime date_return, float price)
+        {
+            Id_transport = id_transport;
+            Id_hotel = id_hotel;
+            Id_departCity = id_departCity;
+            Id_destinationCity = id_destinationCity;
+            Date_depart = date_depart;
+            Date_return = date_return;
+            Price = price;
+        }
 
         public void AddToDB()
         {
-            TripDAO clientDAO = new TripDAO();
-            clientDAO.Save(this);
+            TripDAO tripDAO = new TripDAO();
+            tripDAO.Save(this);
             //error handling
         }
 
