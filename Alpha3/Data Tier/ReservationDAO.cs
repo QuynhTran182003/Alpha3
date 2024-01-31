@@ -1,16 +1,16 @@
-﻿using Alpha3.Bussiness_Tier;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Alpha3.Bussiness_Tier;
 
 namespace Alpha3.Data_Tier
 {
-    public class TripDAO : IDAO<Trip>
+    public class ReservationDAO : IDAO<Reservation>
     {
         public void Delete(int id)
         {
@@ -21,22 +21,23 @@ namespace Alpha3.Data_Tier
         {
             throw new NotImplementedException();
         }
-
-        public void Save(Trip ele)
+        public void Update(int id, ReservationDAO newEle)
         {
-            SqlCommand cmd = new SqlCommand("" +
-                "INSERT INTO Trip (Id_transport, Id_hotel, Id_departCity, Id_destinationCity, Date_depart, Date_return, Price)\r\nVALUES\r\n    (@Id_Trans, @Id_Hotel, @Id_Depart, @Id_Destination, @Date_depart, '@Date_return, @Price);", 
-                DatabaseSingleton.GetInstance());
-            cmd.Parameters.AddWithValue("@Id_Trans", ele.Id_transport);
-            cmd.Parameters.AddWithValue("@Id_Hotel", ele.Id_hotel);
-            cmd.Parameters.AddWithValue("@Id_Depart", ele.Id_departCity);
-            cmd.Parameters.AddWithValue("@Id_Destination", ele.Id_destinationCity);
-            cmd.Parameters.AddWithValue("@Date_depart", ele.Date_depart);
-            cmd.Parameters.AddWithValue("@Date_return", ele.Date_return);
+            throw new NotImplementedException();
+        }
+
+        
+
+        public void Save(Reservation ele)
+        {
+            SqlCommand cmd = new SqlCommand("insert into Reservation (Id_client, Id_trip, Number_pple, Date_reservation) values (@Id_client, @Id_trip, @Number_pple, SYSDATETIME())", DatabaseSingleton.GetInstance());
+            cmd.Parameters.AddWithValue("@Id_client", ele.Id_client);
+            cmd.Parameters.AddWithValue("@Id_trip", ele.Id_Trip);
+            cmd.Parameters.AddWithValue("@Number_pple", ele.Number_pple);
             try
             {
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Trip added");
+                MessageBox.Show("Reservation added");
             }
             catch (SqlException ex)
             {
@@ -45,15 +46,14 @@ namespace Alpha3.Data_Tier
             DatabaseSingleton.CloseConnection();
         }
 
-        public void Update(int id, Trip newEle)
+        public void Update(int id, Reservation newEle)
         {
             throw new NotImplementedException();
         }
 
         public void GetAll(DataGridView dataView)
         {
-            SqlCommand cmd = new SqlCommand("select * from TripView", DatabaseSingleton.GetInstance());
-            //SqlCommand cmd = new SqlCommand("select * from Trip", DatabaseSingleton.GetInstance());
+            SqlCommand cmd = new SqlCommand("select * from ReservationView", DatabaseSingleton.GetInstance());
             try
             {
                 cmd.ExecuteNonQuery();
@@ -69,7 +69,7 @@ namespace Alpha3.Data_Tier
             dataView.DataSource = dt;
 
             DatabaseSingleton.CloseConnection();
-
         }
     }
+
 }

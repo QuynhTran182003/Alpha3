@@ -43,14 +43,14 @@ namespace Alpha3
             clienPanel1.Visible = false;
             tripPanel1.Visible = false;
             reservationPanel1.Visible = true;
-            // reservationPanel1.LoadReservation();
+            reservationPanel1.LoadReservation();
 
         }
 
         private void btnReport_Click(object sender, EventArgs e)
         {
-            //ReportForm reportForm = new ReportForm();
-            //reportForm.ShowDialog();
+            ReportForm reportForm = new ReportForm();
+            reportForm.ShowDialog();
         }
 
         private void btnNewClient_Click(object sender, EventArgs e)

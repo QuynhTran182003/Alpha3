@@ -49,10 +49,12 @@
   <ItemGroup>
     <Compile Include="Bussiness Tier\Client.cs" />
     <Compile Include="Bussiness Tier\IBaseClass.cs" />
+    <Compile Include="Bussiness Tier\Reservation.cs" />
     <Compile Include="Bussiness Tier\Trip.cs" />
     <Compile Include="Data Tier\ClientDAO.cs" />
     <Compile Include="Data Tier\DatabaseSingleton.cs" />
     <Compile Include="Data Tier\IDAO.cs" />
+    <Compile Include="Data Tier\ReservationDAO.cs" />
     <Compile Include="Data Tier\TripDAO.cs" />
     <Compile Include="Presentation Tier\EditClientForm.cs">
       <SubType>Form</SubType>
@@ -78,11 +80,23 @@
     <Compile Include="Presentation Tier\ClienPanel.Designer.cs">
       <DependentUpon>ClienPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentation Tier\NewReservationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation Tier\NewReservationForm.Designer.cs">
+      <DependentUpon>NewReservationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation Tier\NewTripForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Presentation Tier\NewTripForm.Designer.cs">
       <DependentUpon>NewTripForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation Tier\ReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation Tier\ReportForm.Designer.cs">
+      <DependentUpon>ReportForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation Tier\ReservationPanel.cs">
       <SubType>UserControl</SubType>
@@ -110,8 +124,14 @@
     <EmbeddedResource Include="Presentation Tier\ClienPanel.resx">
       <DependentUpon>ClienPanel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentation Tier\NewReservationForm.resx">
+      <DependentUpon>NewReservationForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation Tier\NewTripForm.resx">
       <DependentUpon>NewTripForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation Tier\ReportForm.resx">
+      <DependentUpon>ReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation Tier\ReservationPanel.resx">
       <DependentUpon>ReservationPanel.cs</DependentUpon>

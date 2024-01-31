@@ -34,21 +34,21 @@
             this.btnTrip = new System.Windows.Forms.Button();
             this.btnReport = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.reservationPanel1 = new Alpha3.Presentation_Tier.ReservationPanel();
-            this.tripPanel1 = new Alpha3.Presentation_Tier.TripPanel();
-            this.clienPanel1 = new Alpha3.Presentation_Tier.ClienPanel();
             this.btnHotel = new System.Windows.Forms.Button();
             this.btnCity = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tripPanel1 = new Alpha3.Presentation_Tier.TripPanel();
+            this.reservationPanel1 = new Alpha3.Presentation_Tier.ReservationPanel();
+            this.clienPanel1 = new Alpha3.Presentation_Tier.ClienPanel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbIntro
             // 
             this.lbIntro.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbIntro.Location = new System.Drawing.Point(831, 43);
+            this.lbIntro.Location = new System.Drawing.Point(1022, 43);
             this.lbIntro.Name = "lbIntro";
-            this.lbIntro.Size = new System.Drawing.Size(407, 81);
+            this.lbIntro.Size = new System.Drawing.Size(473, 81);
             this.lbIntro.TabIndex = 0;
             this.lbIntro.Text = "Travel Agent";
             // 
@@ -135,39 +135,6 @@
             this.panel1.Size = new System.Drawing.Size(348, 982);
             this.panel1.TabIndex = 6;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(71, 42);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(224, 46);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Dashboard";
-            // 
-            // reservationPanel1
-            // 
-            this.reservationPanel1.Location = new System.Drawing.Point(438, 171);
-            this.reservationPanel1.Name = "reservationPanel1";
-            this.reservationPanel1.Size = new System.Drawing.Size(1130, 729);
-            this.reservationPanel1.TabIndex = 11;
-            // 
-            // tripPanel1
-            // 
-            this.tripPanel1.Location = new System.Drawing.Point(438, 175);
-            this.tripPanel1.Name = "tripPanel1";
-            this.tripPanel1.Size = new System.Drawing.Size(1135, 728);
-            this.tripPanel1.TabIndex = 10;
-            this.tripPanel1.Visible = false;
-            // 
-            // clienPanel1
-            // 
-            this.clienPanel1.Location = new System.Drawing.Point(438, 175);
-            this.clienPanel1.Name = "clienPanel1";
-            this.clienPanel1.Size = new System.Drawing.Size(1137, 725);
-            this.clienPanel1.TabIndex = 9;
-            this.clienPanel1.Visible = false;
-            // 
             // btnHotel
             // 
             this.btnHotel.BackColor = System.Drawing.Color.LightGray;
@@ -200,14 +167,45 @@
             this.btnCity.Text = "City";
             this.btnCity.UseVisualStyleBackColor = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(71, 42);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(224, 46);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Dashboard";
+            // 
+            // tripPanel1
+            // 
+            this.tripPanel1.Location = new System.Drawing.Point(446, 175);
+            this.tripPanel1.Name = "tripPanel1";
+            this.tripPanel1.Size = new System.Drawing.Size(1500, 800);
+            this.tripPanel1.TabIndex = 9;
+            // 
+            // reservationPanel1
+            // 
+            this.reservationPanel1.Location = new System.Drawing.Point(446, 175);
+            this.reservationPanel1.Name = "reservationPanel1";
+            this.reservationPanel1.Size = new System.Drawing.Size(1500, 800);
+            this.reservationPanel1.TabIndex = 8;
+            // 
+            // clienPanel1
+            // 
+            this.clienPanel1.Location = new System.Drawing.Point(446, 175);
+            this.clienPanel1.Name = "clienPanel1";
+            this.clienPanel1.Size = new System.Drawing.Size(1500, 800);
+            this.clienPanel1.TabIndex = 7;
+            // 
             // IntroForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1691, 980);
-            this.Controls.Add(this.reservationPanel1);
+            this.ClientSize = new System.Drawing.Size(2468, 1412);
             this.Controls.Add(this.tripPanel1);
+            this.Controls.Add(this.reservationPanel1);
             this.Controls.Add(this.clienPanel1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lbIntro);
@@ -230,11 +228,11 @@
         private System.Windows.Forms.Button btnReport;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private Presentation_Tier.ClienPanel clienPanel1;
-        private Presentation_Tier.TripPanel tripPanel1;
-        private Presentation_Tier.ReservationPanel reservationPanel1;
         private System.Windows.Forms.Button btnHotel;
         private System.Windows.Forms.Button btnCity;
+        private Presentation_Tier.ClienPanel clienPanel1;
+        private Presentation_Tier.ReservationPanel reservationPanel1;
+        private Presentation_Tier.TripPanel tripPanel1;
     }
 }
 

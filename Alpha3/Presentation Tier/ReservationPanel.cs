@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Alpha3.Data_Tier;
+using System;
 using System.Windows.Forms;
 
 namespace Alpha3.Presentation_Tier
@@ -15,6 +9,20 @@ namespace Alpha3.Presentation_Tier
         public ReservationPanel()
         {
             InitializeComponent();
+        }
+
+
+
+        public void LoadReservation()
+        {
+            ReservationDAO reservationDAO = new ReservationDAO();
+            reservationDAO.GetAll(this.dataGridView1);
+        }
+
+        private void btnNewRese_Click(object sender, EventArgs e)
+        {
+            NewReservationForm frm = new NewReservationForm();
+            frm.ShowDialog();
         }
     }
 }

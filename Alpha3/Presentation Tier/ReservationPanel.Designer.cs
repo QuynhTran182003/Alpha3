@@ -41,24 +41,25 @@
             this.clientPanel.Controls.Add(this.btnNewRese);
             this.clientPanel.Controls.Add(this.lbReservation);
             this.clientPanel.Controls.Add(this.dataGridView1);
-            this.clientPanel.Location = new System.Drawing.Point(3, 3);
+            this.clientPanel.Location = new System.Drawing.Point(0, 3);
             this.clientPanel.Name = "clientPanel";
-            this.clientPanel.Size = new System.Drawing.Size(1127, 726);
+            this.clientPanel.Size = new System.Drawing.Size(1500, 800);
             this.clientPanel.TabIndex = 9;
             // 
             // btnNewRese
             // 
-            this.btnNewRese.Location = new System.Drawing.Point(859, 22);
+            this.btnNewRese.Location = new System.Drawing.Point(1224, 22);
             this.btnNewRese.Name = "btnNewRese";
-            this.btnNewRese.Size = new System.Drawing.Size(249, 55);
+            this.btnNewRese.Size = new System.Drawing.Size(249, 71);
             this.btnNewRese.TabIndex = 5;
             this.btnNewRese.Text = "New reservation";
             this.btnNewRese.UseVisualStyleBackColor = true;
+            this.btnNewRese.Click += new System.EventHandler(this.btnNewRese_Click);
             // 
             // lbReservation
             // 
             this.lbReservation.AutoSize = true;
-            this.lbReservation.Location = new System.Drawing.Point(3, 22);
+            this.lbReservation.Location = new System.Drawing.Point(30, 34);
             this.lbReservation.Name = "lbReservation";
             this.lbReservation.Size = new System.Drawing.Size(166, 32);
             this.lbReservation.TabIndex = 4;
@@ -69,11 +70,11 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 202);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 186);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 102;
             this.dataGridView1.RowTemplate.Height = 40;
-            this.dataGridView1.Size = new System.Drawing.Size(1124, 524);
+            this.dataGridView1.Size = new System.Drawing.Size(1497, 608);
             this.dataGridView1.TabIndex = 0;
             // 
             // ReservationPanel
@@ -82,7 +83,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.clientPanel);
             this.Name = "ReservationPanel";
-            this.Size = new System.Drawing.Size(1130, 729);
+            this.Size = new System.Drawing.Size(1500, 800);
             this.clientPanel.ResumeLayout(false);
             this.clientPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

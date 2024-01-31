@@ -43,12 +43,12 @@
             this.clientPanel.Controls.Add(this.dataGridView1);
             this.clientPanel.Location = new System.Drawing.Point(3, 3);
             this.clientPanel.Name = "clientPanel";
-            this.clientPanel.Size = new System.Drawing.Size(1127, 726);
+            this.clientPanel.Size = new System.Drawing.Size(1500, 800);
             this.clientPanel.TabIndex = 9;
             // 
             // btnNewTrip
             // 
-            this.btnNewTrip.Location = new System.Drawing.Point(916, 22);
+            this.btnNewTrip.Location = new System.Drawing.Point(981, 22);
             this.btnNewTrip.Name = "btnNewTrip";
             this.btnNewTrip.Size = new System.Drawing.Size(192, 55);
             this.btnNewTrip.TabIndex = 5;
@@ -59,7 +59,7 @@
             // lbTrip
             // 
             this.lbTrip.AutoSize = true;
-            this.lbTrip.Location = new System.Drawing.Point(3, 22);
+            this.lbTrip.Location = new System.Drawing.Point(26, 22);
             this.lbTrip.Name = "lbTrip";
             this.lbTrip.Size = new System.Drawing.Size(63, 32);
             this.lbTrip.TabIndex = 4;
@@ -70,11 +70,11 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 202);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 184);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 102;
             this.dataGridView1.RowTemplate.Height = 40;
-            this.dataGridView1.Size = new System.Drawing.Size(1124, 524);
+            this.dataGridView1.Size = new System.Drawing.Size(1494, 613);
             this.dataGridView1.TabIndex = 0;
             // 
             // TripPanel
@@ -83,7 +83,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.clientPanel);
             this.Name = "TripPanel";
-            this.Size = new System.Drawing.Size(1135, 728);
+            this.Size = new System.Drawing.Size(1500, 800);
             this.clientPanel.ResumeLayout(false);
             this.clientPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
