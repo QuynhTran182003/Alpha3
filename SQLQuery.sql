@@ -81,3 +81,12 @@ VALUES
     (4, 4, 1, 2, '2024-02-01', '2024-02-10', 1500.00),
     (5, 3, 2, 1, '2024-03-15', '2024-03-25', 2000.00),
     (3, 2, 3, 3, '2024-04-20', '2024-04-30', 1800.00);
+
+select 
+DepartureCity.Name AS DepartureCityName,
+DestinationCity.Name AS DestinationCityName, transport.[Type], date_depart, date_return, hotel.name,
+hotel.quality, trip.price from trip
+inner join transport on trip.id_transport = transport.id
+inner join hotel on trip.id_hotel = hotel.id
+INNER JOIN City AS DepartureCity ON Trip.Id_departCity = DepartureCity.ID
+INNER JOIN City AS DestinationCity ON Trip.Id_destinationCity = DestinationCity.ID;

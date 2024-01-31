@@ -52,7 +52,8 @@ namespace Alpha3.Data_Tier
 
         public void GetAll(DataGridView dataView)
         {
-            SqlCommand cmd = new SqlCommand("select * from Trip", DatabaseSingleton.GetInstance());
+            SqlCommand cmd = new SqlCommand("select \r\nDepartureCity.Name AS DepartureCityName,\r\nDestinationCity.Name AS DestinationCityName, transport.[Type], date_depart, date_return, hotel.name,\r\nhotel.quality, trip.price from trip\r\ninner join transport on trip.id_transport = transport.id\r\ninner join hotel on trip.id_hotel = hotel.id\r\nINNER JOIN City AS DepartureCity ON Trip.Id_departCity = DepartureCity.ID\r\nINNER JOIN City AS DestinationCity ON Trip.Id_destinationCity = DestinationCity.ID;", DatabaseSingleton.GetInstance());
+            //SqlCommand cmd = new SqlCommand("select * from Trip", DatabaseSingleton.GetInstance());
             try
             {
                 cmd.ExecuteNonQuery();
