@@ -21,7 +21,7 @@ namespace Alpha3.Presentation_Tier
 
         private void btnNewRese_Click(object sender, EventArgs e)
         {
-            NewReservationForm frm = new NewReservationForm();
+            NewReservationForm frm = new NewReservationForm(this);
             frm.ShowDialog();
         }
     }

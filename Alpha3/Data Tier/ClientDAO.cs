@@ -35,17 +35,33 @@ namespace Alpha3.Data_Tier
 
         }
 
-        public void GetById(int id, DataGridView dataView)
+        public void GetById(int id)
         {
 
             SqlCommand cmd = new SqlCommand("select * from Client where id = @Id", DatabaseSingleton.GetInstance());
             cmd.Parameters.AddWithValue("@Id", id);
 
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            dataView.DataSource = dt;
-            DatabaseSingleton.CloseConnection();
+
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    /*Client client = new Client
+                    {
+                        ID = (int)reader["ID"],
+                        Surname = reader["Surname"].ToString(),
+                        Name = reader["Name"].ToString(),
+                        Email = reader["Email"].ToString(),
+                        Telephone = reader["Telephone"].ToString()
+                    };*/
+
+                    DatabaseSingleton.CloseConnection();
+                }
+            }
+            //SqlDataAdapter da = new SqlDataAdapter(cmd);
+            //DataTable dt = new DataTable();
+            //da.Fill(dt);
+            //dataView.DataSource = dt;
         }
 
         public void GetAll(DataGridView dataView)

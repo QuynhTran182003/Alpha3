@@ -11,6 +11,7 @@ namespace Alpha3.Bussiness_Tier
 {
     public class Trip : IBaseClass<Trip>
     {
+        private int id;
         private int id_transport;
         private int id_hotel;
         private int id_departCity;
@@ -18,8 +19,8 @@ namespace Alpha3.Bussiness_Tier
         private DateTime date_depart;
         private DateTime date_return;
         private float price;
-        
-        public int Id { get => Id; set => Id = value;}
+        private int capacity;
+        public int Id { get => id; set => id = value; }
         public int Id_transport { get => id_transport; set => id_transport = value;}
         public int Id_hotel { get => id_hotel; set => id_hotel = value;}
         public int Id_departCity { get => id_departCity; set => id_departCity = value;}
@@ -27,8 +28,17 @@ namespace Alpha3.Bussiness_Tier
         public DateTime Date_depart { get => date_depart; set => date_depart = value;}
         public DateTime Date_return { get => date_return; set => date_return = value;}
         public float Price { get => price; set => price = value; }
+        public int Capacity { get => capacity; set => capacity = value; }
 
-        public Trip(int id_transport, int id_hotel, int id_departCity, int id_destinationCity, DateTime date_depart, DateTime date_return, float price)
+        public Trip()
+        {
+        }
+        public Trip(int id)
+        {
+            Id = id;
+        }
+
+        public Trip(int id_transport, int id_hotel, int id_departCity, int id_destinationCity, DateTime date_depart, DateTime date_return, float price, int capa)
         {
             Id_transport = id_transport;
             Id_hotel = id_hotel;
@@ -37,15 +47,37 @@ namespace Alpha3.Bussiness_Tier
             Date_depart = date_depart;
             Date_return = date_return;
             Price = price;
+            Capacity = capa;
         }
 
+        public int GetReservedDB()
+        {
+            TripDAO tripDAO = new TripDAO();
+            return tripDAO.GetReserved(this.id);
+
+        }
+        public int GetAvailability()
+        {
+            int availability = Capacity - GetReservedDB();
+            return availability;
+        }
         public void AddToDB()
         {
+            
             TripDAO tripDAO = new TripDAO();
             tripDAO.Save(this);
             //error handling
         }
+        
+        public Trip GetTripByIdDB(int id)
+        {
 
+            TripDAO tripDAO = new TripDAO();
+            Trip trip = tripDAO.GetTripById(id);
+            return trip;
+            //error handling
+        }
+        
         public void UpdateDB(int id)
         {
             TripDAO tripDAO = new TripDAO();

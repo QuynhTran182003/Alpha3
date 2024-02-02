@@ -17,7 +17,7 @@ namespace Alpha3.Data_Tier
             throw new NotImplementedException();
         }
 
-        public void GetById(int id, DataGridView dataview)
+        public void GetById(int id)
         {
             throw new NotImplementedException();
         }

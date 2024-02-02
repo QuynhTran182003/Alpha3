@@ -9,7 +9,7 @@ namespace Alpha3.Data_Tier
 {
     public interface IDAO<T>
     {
-        void GetById(int id, DataGridView dataview);
+        void GetById(int id);
         void Save(T ele);
         void Update(int id, T newEle);
         void Delete(int id);

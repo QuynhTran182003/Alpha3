@@ -48,13 +48,28 @@ namespace Alpha3.Bussiness_Tier
             Id_client = id_client;
             Number_pple = number_pple;
             Id_Trip = id_trip;
-            DateTime date_reservation = DateTime.Now.Date;
+            DateReservation = DateTime.Now.Date;
         }
 
+        private bool checkCapacityTrip(int id_trip)
+        {
+            Trip trip = new TripDAO().GetTripById(id_trip);
+            if(trip.GetAvailability() >= 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public void AddToDB()
         {
-            ReservationDAO reservationDAO = new ReservationDAO();
-            reservationDAO.Save(this);
+            if (checkCapacityTrip(this.Number_pple))
+            {
+                ReservationDAO reservationDAO = new ReservationDAO();
+                reservationDAO.Save(this);
+            }
             //error handling
         }
 

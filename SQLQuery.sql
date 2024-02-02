@@ -91,16 +91,17 @@ VALUES
 
 create view TripView as
 select 
+trip.ID,
 DepartureCity.Name AS Departure,
 DestinationCity.Name AS Destination, transport.[Type] AS Transport, date_depart as 'From', date_return 'To', hotel.name AS Hotel,
-hotel.quality AS Number_Star, trip.price AS Price, Trip.capacity AS Capacity from trip
+hotel.quality AS Number_Star, trip.price AS Price, trip.capacity AS Capacity from trip
 inner join transport on trip.id_transport = transport.id
 inner join hotel on trip.id_hotel = hotel.id
 INNER JOIN City AS DepartureCity ON Trip.Id_departCity = DepartureCity.ID
 INNER JOIN City AS DestinationCity ON Trip.Id_destinationCity = DestinationCity.ID;
-
-
+--drop view TripView;
 select * from ReservationView;
+
 create view ReservationView as
 select CONCAT(client.Name, ' ', client.Surname) as Client, trip.ID as 'Trip Number', departurecity.Name as 'Departure', destinationcity.Name as 'Destination', Reservation.Number_pple as 'Pax', Reservation.Date_reservation as 'Reservation Date', (Reservation.Number_pple * Trip.Price) as 'Total (CZK)',Reservation.Status
 from Reservation
@@ -109,3 +110,7 @@ inner join trip on reservation.id_trip = trip.ID
 inner join city as departurecity on trip.Id_departCity = departurecity.ID
 inner join city as destinationcity on trip.Id_destinationCity = destinationcity.ID
 
+select reservation.Id_trip ,sum(Number_pple) as 'reserved', trip.capacity from Reservation 
+inner join trip on Reservation.Id_trip = trip.ID group by Reservation.Id_trip, trip.capacity;
+
+select * from Reservation;

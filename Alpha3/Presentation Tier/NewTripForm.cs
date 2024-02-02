@@ -16,18 +16,25 @@ namespace Alpha3.Presentation_Tier
 {
     public partial class NewTripForm : Form
     {
-        public NewTripForm()
+        private TripPanel trippanel;
+        public NewTripForm(TripPanel tripPanel)
         {
             InitializeComponent();
-            
+            trippanel = tripPanel;
         }
 
         private void btnNewTrip_Click(object sender, EventArgs e)
         {
-            string transport = this.comboTransport.Text;
-            string hotel = this.comboHotel.Text;
-            string depart = this.comboCity.Text;
-            string destin = this.comboCity2.Text;
+            string[] transport = this.comboTransport.Text.Split(' ');
+            string[] hotel = this.comboHotel.Text.Split(' ');
+            string[] depart = this.comboCity.Text.Split(' ');
+            string[] destin = this.comboCity2.Text.Split(' ');
+
+            int idTransport = int.Parse(transport[0]);
+            int idHotel = int.Parse(hotel[0]);
+            int idCity1 = int.Parse(depart[0]);
+            int idCity2 = int.Parse(destin[0]);
+            int capacity = (int)(this.numericUpDown1.Value);
             DateTime dateDepart = this.dateTimePicker1.Value;
             DateTime dateReturn = this.dateTimePicker2.Value;
             float price = float.Parse(this.tBxPrice.Text);
@@ -35,8 +42,9 @@ namespace Alpha3.Presentation_Tier
 
             //MessageBox.Show("New Trip OK!");
             // get id from those strings
-            //Trip trip = new Trip(transport, hotel, depart, destin, dateDepart, dateReturn, price);
-            //trip.AddToDB();
+            Trip trip = new Trip(idTransport, idHotel, idCity1, idCity2, dateDepart, dateReturn, price, capacity);
+            trip.AddToDB();
+            this.trippanel.LoadTrip();
             this.Hide();
         }
 
@@ -47,7 +55,7 @@ namespace Alpha3.Presentation_Tier
 
         private void comboLoad(System.Windows.Forms.ComboBox transport, System.Windows.Forms.ComboBox hotel, System.Windows.Forms.ComboBox city1, System.Windows.Forms.ComboBox city2)
         {
-            SqlCommand cmd = new SqlCommand("select [Type] from Transport;", DatabaseSingleton.GetInstance());
+            SqlCommand cmd = new SqlCommand("select concat(transport.Id, ' ',[Type]) as 'Type' from Transport;", DatabaseSingleton.GetInstance());
             cmd.ExecuteNonQuery();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable table = new DataTable();
@@ -58,7 +66,7 @@ namespace Alpha3.Presentation_Tier
                 comboTransport.Items.Add(dr["Type"].ToString());
             }
 
-            cmd = new SqlCommand("select [Name] from Hotel;", DatabaseSingleton.GetInstance());
+            cmd = new SqlCommand("select concat(hotel.Id, ' ',[Name]) as 'Name' from Hotel;", DatabaseSingleton.GetInstance());
             cmd.ExecuteNonQuery();
             da = new SqlDataAdapter(cmd);
             table = new DataTable();
@@ -69,7 +77,7 @@ namespace Alpha3.Presentation_Tier
                 comboHotel.Items.Add(dr["Name"].ToString());
             }
 
-            cmd = new SqlCommand("select [Name] from City;", DatabaseSingleton.GetInstance());
+            cmd = new SqlCommand("select concat(city.Id, ' ',[Name]) as 'Name' from City;", DatabaseSingleton.GetInstance());
             cmd.ExecuteNonQuery();
             da = new SqlDataAdapter(cmd);
             table = new DataTable();
