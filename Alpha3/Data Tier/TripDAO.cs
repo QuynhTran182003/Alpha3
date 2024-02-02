@@ -43,9 +43,11 @@ namespace Alpha3.Data_Tier
                     tr.Id = (int)reader["ID"];
                     tr.Id_transport = (int)reader["Id_Transport"];
                     tr.Id_hotel = (int)reader["Id_hotel"];
-                    tr.Id_departCity = (int)reader["Id_transport, Id_hotel, Id_departCity, Id_destinationCity"];
+                    tr.Id_departCity = (int)reader["Id_departCity"];
                     tr.Id_destinationCity = (int)reader["Id_destinationCity"];
-                    tr.Price = (float)reader["Price"];
+                    tr.Date_depart = (DateTime)reader["Date_depart"];
+                    tr.Date_return = (DateTime)reader["Date_return"];
+                    //tr.Price = (float) reader["Price"];
                     tr.Capacity = (int)reader["Capacity"];
                 }
                 

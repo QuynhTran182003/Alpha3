@@ -51,10 +51,10 @@ namespace Alpha3.Bussiness_Tier
             DateReservation = DateTime.Now.Date;
         }
 
-        private bool checkCapacityTrip(int id_trip)
+        private bool checkCapacityTrip(int numPple)
         {
-            Trip trip = new TripDAO().GetTripById(id_trip);
-            if(trip.GetAvailability() >= 0)
+            Trip trip = new TripDAO().GetTripById(this.Id_Trip);
+            if(trip.GetAvailability() >= numPple)
             {
                 return true;
             }
@@ -69,6 +69,10 @@ namespace Alpha3.Bussiness_Tier
             {
                 ReservationDAO reservationDAO = new ReservationDAO();
                 reservationDAO.Save(this);
+            }
+            else
+            {
+                MessageBox.Show("Overlimit");
             }
             //error handling
         }
