@@ -26,6 +26,7 @@ namespace Alpha3.Bussiness_Tier
 
         public bool Status { get => status; set => status = value; }
 
+        public Reservation(){}
         public Reservation(int id)
         {
             Id = id;
@@ -102,6 +103,38 @@ namespace Alpha3.Bussiness_Tier
         {
             ReservationDAO reservationDAO = new ReservationDAO();
             reservationDAO.GetAll(dataGridView);
+            //error handling
+
+        }
+
+        public void GetReservationById(int id)
+        {
+            ReservationDAO reservationDAO = new ReservationDAO();
+            reservationDAO.GetReservationById(id);
+            //error handling
+
+        }
+
+        public float GetReport()
+        {
+            ReservationDAO reservationDAO = new ReservationDAO();
+            return reservationDAO.GetReportDB();
+            //error handling
+
+        }
+
+        public float GetPaid()
+        {
+            ReservationDAO reservationDAO = new ReservationDAO();
+            return reservationDAO.GetPaidDB();
+            //error handling
+
+        }
+
+        public float GetUnpaid()
+        {
+            ReservationDAO reservationDAO = new ReservationDAO();
+            return reservationDAO.GetUnpaidDB();
             //error handling
 
         }

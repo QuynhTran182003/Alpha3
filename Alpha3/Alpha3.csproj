@@ -63,6 +63,12 @@
     <Compile Include="Presentation Tier\EditClientForm.Designer.cs">
       <DependentUpon>EditClientForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentation Tier\EditReservationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation Tier\EditReservationForm.Designer.cs">
+      <DependentUpon>EditReservationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation Tier\EditTripForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,12 @@
     <Compile Include="Presentation Tier\ReservationPanel.Designer.cs">
       <DependentUpon>ReservationPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentation Tier\ReservationReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation Tier\ReservationReport.Designer.cs">
+      <DependentUpon>ReservationReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation Tier\TripPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -127,6 +139,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Presentation Tier\EditClientForm.resx">
       <DependentUpon>EditClientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation Tier\EditReservationForm.resx">
+      <DependentUpon>EditReservationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation Tier\EditTripForm.resx">
       <DependentUpon>EditTripForm.cs</DependentUpon>
@@ -151,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation Tier\ReservationPanel.resx">
       <DependentUpon>ReservationPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation Tier\ReservationReport.resx">
+      <DependentUpon>ReservationReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation Tier\TripReport.resx">
       <DependentUpon>TripReport.cs</DependentUpon>

@@ -58,11 +58,11 @@
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dataGridView1.Location = new System.Drawing.Point(117, 220);
+            this.dataGridView1.Location = new System.Drawing.Point(39, 220);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 102;
             this.dataGridView1.RowTemplate.Height = 40;
-            this.dataGridView1.Size = new System.Drawing.Size(1264, 923);
+            this.dataGridView1.Size = new System.Drawing.Size(1425, 923);
             this.dataGridView1.TabIndex = 4;
             // 
             // TripReport

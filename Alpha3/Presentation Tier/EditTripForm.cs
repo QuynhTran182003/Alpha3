@@ -28,12 +28,20 @@ namespace Alpha3.Presentation_Tier
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            selectedTrip.Capacity = int.Parse(tBxNewCapa.Text);
-            selectedTrip.Price = float.Parse(tBxNewPrice.Text);
+            try
+            {
+                selectedTrip.Capacity = int.Parse(tBxNewCapa.Text);
+                selectedTrip.Price = float.Parse(tBxNewPrice.Text);
 
-            this.Hide();
-            selectedTrip.UpdateDB();
-            this.tripPanel.LoadTrip();
+                this.Hide();
+                selectedTrip.UpdateDB();
+                this.tripPanel.LoadTrip();
+            }
+            catch
+            {
+                MessageBox.Show("Value must be a number");
+            }
+            
         }
     }
 }

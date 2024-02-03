@@ -61,7 +61,7 @@
             this.lbReservation.AutoSize = true;
             this.lbReservation.Location = new System.Drawing.Point(30, 34);
             this.lbReservation.Name = "lbReservation";
-            this.lbReservation.Size = new System.Drawing.Size(166, 32);
+            this.lbReservation.Size = new System.Drawing.Size(160, 31);
             this.lbReservation.TabIndex = 4;
             this.lbReservation.Text = "Reservation";
             // 
@@ -77,6 +77,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(1497, 608);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
+            this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
             // 
             // ReservationPanel
             // 

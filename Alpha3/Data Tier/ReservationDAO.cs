@@ -33,6 +33,34 @@ namespace Alpha3.Data_Tier
         {
             throw new NotImplementedException();
         }
+
+        public Reservation GetReservationById(int id)
+        {
+            //todo
+            SqlCommand cmd = new SqlCommand("select * from Reservation where id = @Id", DatabaseSingleton.GetInstance());
+            cmd.Parameters.AddWithValue("@Id", id);
+            Reservation r = new Reservation();
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+
+                    /*tr.Id = (int)reader["ID"];
+                    tr.Id_transport = (int)reader["Id_Transport"];
+                    tr.Id_hotel = (int)reader["Id_hotel"];
+                    tr.Id_departCity = (int)reader["Id_departCity"];
+                    tr.Id_destinationCity = (int)reader["Id_destinationCity"];
+                    tr.Date_depart = (DateTime)reader["Date_depart"];
+                    tr.Date_return = (DateTime)reader["Date_return"];
+                    tr.Price = (float)((decimal)reader["Price"]);
+                    tr.Capacity = (int)reader["Capacity"];*/
+                }
+
+            }
+            DatabaseSingleton.CloseConnection();
+            return r;
+        } 
+
         public void Update(int id, ReservationDAO newEle)
         {
             throw new NotImplementedException();
@@ -81,6 +109,57 @@ namespace Alpha3.Data_Tier
             dataView.DataSource = dt;
 
             DatabaseSingleton.CloseConnection();
+        }
+
+        public float GetReportDB()
+        {
+            SqlCommand cmd = new SqlCommand("select sum(Reservation.Number_pple * Trip.Price) as 'Total' from Reservation inner join trip on trip.ID = Reservation.Id_trip\r\n", DatabaseSingleton.GetInstance());
+            int total = 0;
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    total = (int)((decimal)reader["Total"]);
+                }
+            }
+            DatabaseSingleton.CloseConnection();
+
+            return (float)total;
+        }
+
+        
+
+        public int GetPaidDB()
+        {
+            SqlCommand cmd = new SqlCommand("select count(Reservation.ID) as 'Paid' from Reservation where Reservation.Status = 1", DatabaseSingleton.GetInstance());
+            int total = 0;
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    total = (int)reader["Paid"];
+                }
+            }
+            DatabaseSingleton.CloseConnection();
+
+            return (int)total;
+        }
+
+
+        public int GetUnpaidDB()
+        {
+            SqlCommand cmd = new SqlCommand("select count(Reservation.ID) as 'Unpaid' from Reservation where Reservation.Status = 0", DatabaseSingleton.GetInstance());
+            int total = 0;
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    total = (int)reader["Unpaid"];
+                }
+            }
+            DatabaseSingleton.CloseConnection();
+
+            return (int)total;
         }
     }
 

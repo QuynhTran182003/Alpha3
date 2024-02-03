@@ -34,10 +34,12 @@ namespace Alpha3.Presentation_Tier
 
         private void LoadTripReport() { 
             this.tripReport1.Visible = true;
+            this.reservationReport1.Visible = false;
         }
         private void LoadReservationReport() { 
-            this.tripReport1.Visible = false;
 
+            this.tripReport1.Visible = false;
+            this.reservationReport1.Visible = true;
         }
     }
 }

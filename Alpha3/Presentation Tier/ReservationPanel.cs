@@ -42,5 +42,20 @@ namespace Alpha3.Presentation_Tier
                 }
             }
         }
+
+        private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int id = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["Id"].FormattedValue.ToString());
+            string client = dataGridView1.Rows[e.RowIndex].Cells["Client"].FormattedValue.ToString();
+            string departure = dataGridView1.Rows[e.RowIndex].Cells["Departure"].FormattedValue.ToString();
+            string destination = dataGridView1.Rows[e.RowIndex].Cells["Destination"].FormattedValue.ToString();
+            float total = (float) Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["Total (CZK)"].FormattedValue.ToString());
+            //todo
+            bool a = (bool) dataGridView1.Rows[e.RowIndex].Cells["Status"].FormattedValue;
+
+            Console.WriteLine(a);
+            /*EditReservationForm erf = new EditReservationForm(this);
+            erf.ShowDialog()*/
+        }
     }
 }

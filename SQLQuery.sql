@@ -127,3 +127,28 @@ group by Reservation.Id_trip, departurecity.Name, destinationcity.Name, trip.cap
 order by sum(Number_pple)
 
 delete from Trip where id = 1
+
+select 
+	trip.ID,
+	DepartureCity.Name AS Departure,
+	DestinationCity.Name AS Destination, transport.[Type] AS Transport, date_depart as 'From', date_return 'To', hotel.name AS Hotel,
+	hotel.quality AS Number_Star, trip.price AS Price, trip.capacity AS Capacity from trip
+	inner join transport on trip.id_transport = transport.id
+	inner join hotel on trip.id_hotel = hotel.id
+	INNER JOIN City AS DepartureCity ON Trip.Id_departCity = DepartureCity.ID
+	INNER JOIN City AS DestinationCity ON Trip.Id_destinationCity = DestinationCity.ID;
+
+
+	select 
+	Reservation.ID,
+	CONCAT(client.Name, ' ', client.Surname) as Client, 
+	departurecity.Name as 'Departure', 
+	destinationcity.Name as 'Destination', 
+	(Reservation.Number_pple * Trip.Price) as 'Total (CZK)',
+	Reservation.Status
+	from Reservation
+	inner join client on reservation.id_client = client.ID
+	inner join trip on reservation.id_trip = trip.ID
+	inner join city as departurecity on trip.Id_departCity = departurecity.ID
+	inner join city as destinationcity on trip.Id_destinationCity = destinationcity.ID
+
