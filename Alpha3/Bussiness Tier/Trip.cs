@@ -36,6 +36,7 @@ namespace Alpha3.Bussiness_Tier
         public Trip(int id)
         {
             Id = id;
+            Capacity = 0;
         }
 
         public Trip(int id_transport, int id_hotel, int id_departCity, int id_destinationCity, DateTime date_depart, DateTime date_return, float price, int capa)
@@ -78,10 +79,10 @@ namespace Alpha3.Bussiness_Tier
             //error handling
         }
         
-        public void UpdateDB(int id)
+        public void UpdateDB()
         {
             TripDAO tripDAO = new TripDAO();
-            tripDAO.Update(id, this);
+            tripDAO.Update(this.id, this);
             //error handling
         }
 

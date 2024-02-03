@@ -32,7 +32,12 @@ namespace Alpha3.Presentation_Tier
 
         }
 
-        private void LoadTripReport() { }
-        private void LoadReservationReport() { }
+        private void LoadTripReport() { 
+            this.tripReport1.Visible = true;
+        }
+        private void LoadReservationReport() { 
+            this.tripReport1.Visible = false;
+
+        }
     }
 }

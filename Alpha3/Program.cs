@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Alpha3.Data_Tier;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,7 +19,7 @@ namespace Alpha3
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new IntroForm());
 
-
+            CreateDatabase.CreateDatabaseQuery("SQLQuery.sql");
         }
     }
 }

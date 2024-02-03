@@ -14,7 +14,19 @@ namespace Alpha3.Data_Tier
     {
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            SqlCommand cmd = new SqlCommand("delete from Reservation where id = @Id", DatabaseSingleton.GetInstance());
+            cmd.Parameters.AddWithValue("@Id", id);
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Reservation deleted successfully");
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Unable to delete the reservation. Please reach out to our support center.");
+            }
+
+            DatabaseSingleton.CloseConnection();
         }
 
         public void GetById(int id)

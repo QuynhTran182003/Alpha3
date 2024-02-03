@@ -23,7 +23,7 @@ namespace Alpha3.Data_Tier
             }
             catch (SqlException)
             {
-                MessageBox.Show("Unable to delete: Conflict with some tables in DB, which have Client_id as FK");
+                MessageBox.Show("Unable to delete the trip which has been reserved by client. You must cancel their reservation first.");
             }
 
             DatabaseSingleton.CloseConnection();
@@ -47,15 +47,13 @@ namespace Alpha3.Data_Tier
                     tr.Id_destinationCity = (int)reader["Id_destinationCity"];
                     tr.Date_depart = (DateTime)reader["Date_depart"];
                     tr.Date_return = (DateTime)reader["Date_return"];
-                    //tr.Price = (float) reader["Price"];
+                    tr.Price = (float)((decimal) reader["Price"]);
                     tr.Capacity = (int)reader["Capacity"];
                 }
                 
             }
             DatabaseSingleton.CloseConnection();
-
             return tr;
-
         }
 
         public void GetById(int id)
@@ -91,7 +89,20 @@ namespace Alpha3.Data_Tier
 
         public void Update(int id, Trip newEle)
         {
-            throw new NotImplementedException();
+            SqlCommand cmd = new SqlCommand("update Trip set Price = @Price, Capacity = @Capacity where ID = @Id ", DatabaseSingleton.GetInstance());
+            cmd.Parameters.AddWithValue("@Id", id);
+            cmd.Parameters.AddWithValue("@Price", newEle.Price);
+            cmd.Parameters.AddWithValue("@Capacity", newEle.Capacity);
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Trip updated successfully");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            DatabaseSingleton.CloseConnection();
         }
 
         public void GetAll(DataGridView dataView)
@@ -131,6 +142,32 @@ namespace Alpha3.Data_Tier
             DatabaseSingleton.CloseConnection();
 
             return numberReserved;
+        }
+        
+        public void GetReservedAll(DataGridView dataGridView)
+        {
+            SqlCommand cmd = new SqlCommand("select Reservation.Id_trip, sum(Number_pple) as 'Reserved', (trip.capacity - sum(Number_pple)) as 'Available', departurecity.Name as 'Departure', destinationcity.Name as 'Destination' from Reservation " +
+                                            "inner join trip on Reservation.Id_trip = trip.ID " +
+                                            "inner join city as departurecity on trip.Id_departCity = departurecity.ID " +
+                                            "inner join city as destinationcity on trip.Id_destinationCity = destinationcity.ID " +
+                                            "group by Reservation.Id_trip, departurecity.Name, destinationcity.Name, trip.capacity " +
+                                            "order by sum(Number_pple)", 
+                                             DatabaseSingleton.GetInstance());
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            dataGridView.DataSource = dt;
+
+            DatabaseSingleton.CloseConnection();
         }
     }
 }

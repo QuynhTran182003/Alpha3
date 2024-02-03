@@ -36,7 +36,7 @@ namespace Alpha3.Presentation_Tier
             if (e.Button == MouseButtons.Right)
             {
                 int id = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["ID"].FormattedValue.ToString());
-                if (MessageBox.Show($"Are u sure to delete trip {id}?", "Delete client", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show($"Are u sure to delete trip {id}?", "Delete trip", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     {
                         Trip tr = new Trip(id);
@@ -45,6 +45,17 @@ namespace Alpha3.Presentation_Tier
                     }
                 }
             }
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int id = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["Id"].FormattedValue.ToString());
+            //float price = (float) Convert.ToDecimal(dataGridView1.Rows[e.RowIndex].Cells["Price"].FormattedValue.ToString());
+            //int capacity = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["Capacity"].FormattedValue.ToString());
+           
+
+            EditTripForm editTripForm = new EditTripForm(id, this);
+            editTripForm.ShowDialog();
         }
     }
 }

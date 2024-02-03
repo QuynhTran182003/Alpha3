@@ -10,12 +10,13 @@ namespace Alpha3.Bussiness_Tier
 {
     public class Reservation : IBaseClass<Reservation>
     {
+        private int id;
         private int id_client;
         private int id_trip;
         private int number_pple;
         private DateTime date_reservation;
         private bool status = false;
-        public int Id { get => Id; set => Id = value; }
+        public int Id { get => id; set => id = value; }
 
         public int Id_client { get => id_client; set => id_client = value; }
         public int Number_pple { get => number_pple; set => number_pple = value; }
@@ -25,6 +26,10 @@ namespace Alpha3.Bussiness_Tier
 
         public bool Status { get => status; set => status = value; }
 
+        public Reservation(int id)
+        {
+            Id = id;
+        }
 
         public Reservation(int id_client, int id_trip, int number_pple, DateTime date_reservation, bool status)
         {
