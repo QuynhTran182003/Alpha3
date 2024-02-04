@@ -68,6 +68,7 @@ namespace Alpha3
             clienPanel1.Visible = false;
             tripPanel1.Visible = false;
             reservationPanel1.Visible = false;
+            hotelPanel1.Visible = true;
         }
 
         private void btnCity_Click(object sender, EventArgs e)

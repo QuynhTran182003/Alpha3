@@ -40,6 +40,7 @@
             this.tripPanel1 = new Alpha3.Presentation_Tier.TripPanel();
             this.reservationPanel1 = new Alpha3.Presentation_Tier.ReservationPanel();
             this.clienPanel1 = new Alpha3.Presentation_Tier.ClienPanel();
+            this.hotelPanel1 = new Alpha3.Presentation_Tier.HotelPanel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -200,12 +201,20 @@
             this.clienPanel1.Size = new System.Drawing.Size(1500, 800);
             this.clienPanel1.TabIndex = 7;
             // 
+            // hotelPanel1
+            // 
+            this.hotelPanel1.Location = new System.Drawing.Point(446, 183);
+            this.hotelPanel1.Name = "hotelPanel1";
+            this.hotelPanel1.Size = new System.Drawing.Size(1500, 800);
+            this.hotelPanel1.TabIndex = 10;
+            // 
             // IntroForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(2468, 1412);
+            this.Controls.Add(this.hotelPanel1);
             this.Controls.Add(this.tripPanel1);
             this.Controls.Add(this.reservationPanel1);
             this.Controls.Add(this.clienPanel1);
@@ -235,6 +244,7 @@
         private Presentation_Tier.ClienPanel clienPanel1;
         private Presentation_Tier.ReservationPanel reservationPanel1;
         private Presentation_Tier.TripPanel tripPanel1;
+        private Presentation_Tier.HotelPanel hotelPanel1;
     }
 }
 

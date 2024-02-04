@@ -82,7 +82,7 @@ namespace Alpha3.Bussiness_Tier
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error in AddToDB: {ex.Message}");
+                MessageBox.Show($"Error in AddToDB: {ex.Message}");
             }
         }
 
@@ -95,7 +95,7 @@ namespace Alpha3.Bussiness_Tier
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error in UpdateDB: {ex.Message}");
+                MessageBox.Show($"Error in UpdateDB: {ex.Message}");
             }
         }
 
@@ -108,7 +108,7 @@ namespace Alpha3.Bussiness_Tier
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error in Delete: {ex.Message}");
+                MessageBox.Show($"Error in Delete: {ex.Message}");
             }
         }
 
@@ -121,7 +121,7 @@ namespace Alpha3.Bussiness_Tier
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error in GetAllDB: {ex.Message}");
+                MessageBox.Show($"Error in GetAllDB: {ex.Message}");
             }
         }
     }

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,26 +42,48 @@ namespace Alpha3.Presentation_Tier
                     parser.TextFieldType = FieldType.Delimited;
                     parser.SetDelimiters(",");
 
+                    int lineNumber = 0; // Track the line number for error reporting
+
                     while (!parser.EndOfData)
                     {
+                        lineNumber++;
+
                         // Read fields from the current line
                         string[] fields = parser.ReadFields();
-
-                        // Assuming the CSV structure is: Name,Street,Number1,Number2,Postcode,Quality
-                        if (fields.Length >= 4)
+                        // Skip the first line (headers)
+                        if (lineNumber == 1)
                         {
-                            Hotel hotel = new Hotel
+                            continue;
+                        }
+                        try
+                        {
+                            if (fields.Length >= 6)
                             {
-                                Name = fields[0],
-                                Street = fields[1],
-                                Number1 = fields[2],
-                                Number2 = fields[3],
-                                Postcode = fields[4],
-                                Quality = int.Parse(fields[5])
-                            };
-
-                            HotelDAO hotelDAO = new HotelDAO();
-                            hotelDAO.Save(hotel);
+                                Hotel hotel = new Hotel();
+                                hotel.Name = fields[0];
+                                hotel.Street = fields[1];
+                                hotel.Number1 = int.Parse(fields[2]);
+                                hotel.Postcode = fields[4];
+                                hotel.Quality = int.Parse(fields[5]);
+                                int number2; // Declare a variable to store the parsed integer
+                                if (int.TryParse(fields[3], out number2))
+                                {
+                                    hotel.Number2 = number2;
+                                }
+                                else
+                                {
+                                    hotel.Number2 = 0;
+                                }
+                                hotel.AddToDB();
+                            }
+                            else
+                            {
+                                MessageBox.Show($"Error on line {lineNumber}: Insufficient fields in CSV.");
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"Error on line {lineNumber}: {ex.Message}");
                         }
                     }
                 }
@@ -75,8 +98,8 @@ namespace Alpha3.Presentation_Tier
 
         private void HotelPanel_Load(object sender, EventArgs e)
         {
-            /*Hotel hotel = new Hotel();
-            hotel.GetAllDB();*/
+            Hotel hotel = new Hotel();
+            hotel.GetAllDB(this.dataGridView1);
         }
     }
 }
