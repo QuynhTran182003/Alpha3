@@ -41,6 +41,7 @@
             this.reservationPanel1 = new Alpha3.Presentation_Tier.ReservationPanel();
             this.clienPanel1 = new Alpha3.Presentation_Tier.ClienPanel();
             this.hotelPanel1 = new Alpha3.Presentation_Tier.HotelPanel();
+            this.cityPanel1 = new Alpha3.Presentation_Tier.CityPanel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -208,12 +209,20 @@
             this.hotelPanel1.Size = new System.Drawing.Size(1500, 800);
             this.hotelPanel1.TabIndex = 10;
             // 
+            // cityPanel1
+            // 
+            this.cityPanel1.Location = new System.Drawing.Point(446, 183);
+            this.cityPanel1.Name = "cityPanel1";
+            this.cityPanel1.Size = new System.Drawing.Size(1500, 800);
+            this.cityPanel1.TabIndex = 11;
+            // 
             // IntroForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(2468, 1412);
+            this.Controls.Add(this.cityPanel1);
             this.Controls.Add(this.hotelPanel1);
             this.Controls.Add(this.tripPanel1);
             this.Controls.Add(this.reservationPanel1);
@@ -223,7 +232,6 @@
             this.Name = "IntroForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Your Travel Agent";
-            this.Load += new System.EventHandler(this.IntroForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -245,6 +253,7 @@
         private Presentation_Tier.ReservationPanel reservationPanel1;
         private Presentation_Tier.TripPanel tripPanel1;
         private Presentation_Tier.HotelPanel hotelPanel1;
+        private Presentation_Tier.CityPanel cityPanel1;
     }
 }
 

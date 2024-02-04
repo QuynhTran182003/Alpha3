@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,9 +12,9 @@ using System.Windows.Forms;
 
 namespace Alpha3.Presentation_Tier
 {
-    public partial class HotelPanel : UserControl
+    public partial class CityPanel : UserControl
     {
-        public HotelPanel()
+        public CityPanel()
         {
             InitializeComponent();
         }
@@ -29,7 +28,7 @@ namespace Alpha3.Presentation_Tier
             if (file != null)
             {
                 ImportFromCsv(file);
-                this.HotelPanel_Load(sender, e);
+                this.CityPanel_Load(sender, e);
             }
         }
 
@@ -59,22 +58,10 @@ namespace Alpha3.Presentation_Tier
                         {
                             if (fields.Length >= Program.GetNumberOfColumns(file))
                             {
-                                Hotel hotel = new Hotel();
-                                hotel.Name = fields[0];
-                                hotel.Street = fields[1];
-                                hotel.Number1 = int.Parse(fields[2]);
-                                hotel.Postcode = fields[4];
-                                hotel.Quality = int.Parse(fields[5]);
-                                int number2; // Declare a variable to store the parsed integer
-                                if (int.TryParse(fields[3], out number2))
-                                {
-                                    hotel.Number2 = number2;
-                                }
-                                else
-                                {
-                                    hotel.Number2 = 0;
-                                }
-                                hotel.AddToDB();
+                                City city = new City();
+                                city.Name = fields[0];
+                                city.Abbreviation= fields[1];
+                                city.AddToDB();
                             }
                             else
                             {
@@ -88,7 +75,7 @@ namespace Alpha3.Presentation_Tier
                     }
                 }
 
-                MessageBox.Show("Imported successfully.");
+                MessageBox.Show("Imported City successfully.");
             }
             catch (Exception ex)
             {
@@ -96,10 +83,11 @@ namespace Alpha3.Presentation_Tier
             }
         }
 
-        public void HotelPanel_Load(object sender, EventArgs e)
+        public void CityPanel_Load(object sender, EventArgs e)
         {
-            Hotel hotel = new Hotel();
-            hotel.GetAllDB(this.dataGridView1);
+            City city= new City();
+
+            city.GetAllDB(this.dataGridView1);
         }
     }
 }

@@ -48,11 +48,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bussiness Tier\City.cs" />
     <Compile Include="Bussiness Tier\Client.cs" />
     <Compile Include="Bussiness Tier\Hotel.cs" />
     <Compile Include="Bussiness Tier\IBaseClass.cs" />
     <Compile Include="Bussiness Tier\Reservation.cs" />
     <Compile Include="Bussiness Tier\Trip.cs" />
+    <Compile Include="Data Tier\CityDAO.cs" />
     <Compile Include="Data Tier\ClientDAO.cs" />
     <Compile Include="Data Tier\CreateDatabase.cs" />
     <Compile Include="Data Tier\DatabaseSingleton.cs" />
@@ -60,6 +62,12 @@
     <Compile Include="Data Tier\IDAO.cs" />
     <Compile Include="Data Tier\ReservationDAO.cs" />
     <Compile Include="Data Tier\TripDAO.cs" />
+    <Compile Include="Presentation Tier\CityPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation Tier\CityPanel.Designer.cs">
+      <DependentUpon>CityPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation Tier\EditClientForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +154,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Presentation Tier\CityPanel.resx">
+      <DependentUpon>CityPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation Tier\EditClientForm.resx">
       <DependentUpon>EditClientForm.cs</DependentUpon>
     </EmbeddedResource>

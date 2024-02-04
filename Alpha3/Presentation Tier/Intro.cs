@@ -19,12 +19,16 @@ namespace Alpha3
             tripPanel1.Visible = false;
             reservationPanel1.Visible = false;
             clienPanel1.Visible = false;
+            cityPanel1.Visible = false;
+            hotelPanel1.Visible = false;
         }
 
         private void btnClient_Click(object sender, EventArgs e)
         {
             tripPanel1.Visible = false;
             reservationPanel1.Visible = false;
+            hotelPanel1.Visible = false;
+            cityPanel1.Visible=false;
             clienPanel1.Visible = true;
             clienPanel1.LoadClient();
         }
@@ -33,6 +37,8 @@ namespace Alpha3
         {
             clienPanel1.Visible=false;
             reservationPanel1.Visible = false;
+            hotelPanel1.Visible = false;
+            cityPanel1.Visible = false;
             tripPanel1.Visible = true;
             tripPanel1.LoadTrip();
 
@@ -42,25 +48,11 @@ namespace Alpha3
         {
             clienPanel1.Visible = false;
             tripPanel1.Visible = false;
+            hotelPanel1.Visible = false;
+            cityPanel1.Visible = false;
             reservationPanel1.Visible = true;
             reservationPanel1.LoadReservation();
 
-        }
-
-        private void btnReport_Click(object sender, EventArgs e)
-        {
-            ReportForm reportForm = new ReportForm();
-            reportForm.ShowDialog();
-        }
-
-        private void btnNewClient_Click(object sender, EventArgs e)
-        {
-            NewClientForm newClientForm = new NewClientForm(clienPanel1);
-            newClientForm.ShowDialog();
-        }
-
-        private void IntroForm_Load(object sender, EventArgs e)
-        {
         }
 
         private void btnHotel_Click(object sender, EventArgs e)
@@ -68,7 +60,10 @@ namespace Alpha3
             clienPanel1.Visible = false;
             tripPanel1.Visible = false;
             reservationPanel1.Visible = false;
+            cityPanel1.Visible=false;
             hotelPanel1.Visible = true;
+            hotelPanel1.HotelPanel_Load(sender, e);
+
         }
 
         private void btnCity_Click(object sender, EventArgs e)
@@ -76,6 +71,14 @@ namespace Alpha3
             clienPanel1.Visible = false;
             tripPanel1.Visible = false;
             reservationPanel1.Visible = false;
+            hotelPanel1.Visible=false;
+            cityPanel1.Visible = true;
+            cityPanel1.CityPanel_Load(sender,e);
+        }
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            ReportForm reportForm = new ReportForm();
+            reportForm.ShowDialog();
         }
     }
 }

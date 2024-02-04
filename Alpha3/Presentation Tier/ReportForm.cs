@@ -41,5 +41,10 @@ namespace Alpha3.Presentation_Tier
             this.tripReport1.Visible = false;
             this.reservationReport1.Visible = true;
         }
+
+        private void ReportForm_Load(object sender, EventArgs e)
+        {
+            LoadTripReport();
+        }
     }
 }

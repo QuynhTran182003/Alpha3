@@ -23,7 +23,7 @@ namespace Alpha3.Presentation_Tier
         private void btnNewClient_Click(object sender, EventArgs e)
         {
             NewClientForm frm = new NewClientForm(this);
-            frm.ShowDialog();
+            frm.ShowDialog(); 
         }
 
         public void LoadClient()
