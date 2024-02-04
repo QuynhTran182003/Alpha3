@@ -17,6 +17,7 @@ namespace Alpha3
         static void Main()
         {
             CreateDatabase.CreateDatabaseQuery("../../Data Tier/SQLQuery.sql");
+            CreateDatabase.CreateDatabaseQuery("../../Data Tier/SQLQuery2.sql");
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

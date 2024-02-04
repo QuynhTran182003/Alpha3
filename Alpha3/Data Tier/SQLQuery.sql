@@ -2,8 +2,6 @@ use master
 drop database if exists Cestovni_Agentura;
 drop login admin_user;
 
-
-go
 CREATE DATABASE Cestovni_Agentura;
 IF NOT EXISTS 
     (SELECT name
@@ -14,14 +12,13 @@ BEGIN
 END
 
 --create login admin_user with password='adminadmin';
-go
 
 USE Cestovni_Agentura;
 
 begin transaction;
-go
+
 CREATE USER [admin_user] FOR LOGIN [admin_user] WITH DEFAULT_SCHEMA=[dbo];
-GO
+
 ALTER ROLE [db_owner] ADD MEMBER [admin_user];
 commit;
 
@@ -118,61 +115,57 @@ CREATE TABLE Reservation(
 		(3, 2, 3, 3, '2024-04-20', '2024-04-30', 1800.00);
 
 -- CREATE VIEWS
-	create view TripView as
-	select 
-	trip.ID,
-	DepartureCity.Name AS Departure,
-	DestinationCity.Name AS Destination, transport.[Type] AS Transport, date_depart as 'From', date_return 'To', hotel.name AS Hotel,
-	hotel.quality AS Number_Star, trip.price AS Price, trip.capacity AS Capacity from trip
-	inner join transport on trip.id_transport = transport.id
-	inner join hotel on trip.id_hotel = hotel.id
-	INNER JOIN City AS DepartureCity ON Trip.Id_departCity = DepartureCity.ID
-	INNER JOIN City AS DestinationCity ON Trip.Id_destinationCity = DestinationCity.ID;
+create view TripView as
+select 
+trip.ID,
+DepartureCity.Name AS Departure,
+DestinationCity.Name AS Destination, transport.[Type] AS Transport, date_depart as 'From', date_return 'To', hotel.name AS Hotel,
+hotel.quality AS Number_Star, trip.price AS Price, trip.capacity AS Capacity from trip
+inner join transport on trip.id_transport = transport.id
+inner join hotel on trip.id_hotel = hotel.id
+INNER JOIN City AS DepartureCity ON Trip.Id_departCity = DepartureCity.ID
+INNER JOIN City AS DestinationCity ON Trip.Id_destinationCity = DestinationCity.ID;
 
-
-	create view ReservationView as
-	select 
-	Reservation.ID,
-	CONCAT(client.Name, ' ', client.Surname) as Client, trip.ID as 'Trip Number', departurecity.Name as 'Departure', destinationcity.Name as 'Destination', Reservation.Number_pple as 'Pax', Reservation.Date_reservation as 'Reservation Date', (Reservation.Number_pple * Trip.Price) as 'Total (CZK)',Reservation.Status
-	from Reservation
-	inner join client on reservation.id_client = client.ID
-	inner join trip on reservation.id_trip = trip.ID
-	inner join city as departurecity on trip.Id_departCity = departurecity.ID
-	inner join city as destinationcity on trip.Id_destinationCity = destinationcity.ID
-
+create view ReservationView as
+select 
+Reservation.ID,
+CONCAT(client.Name, ' ', client.Surname) as Client, trip.ID as 'Trip Number', departurecity.Name as 'Departure', destinationcity.Name as 'Destination', Reservation.Number_pple as 'Pax', Reservation.Date_reservation as 'Reservation Date', (Reservation.Number_pple * Trip.Price) as 'Total (CZK)',Reservation.Status
+from Reservation
+inner join client on reservation.id_client = client.ID
+inner join trip on reservation.id_trip = trip.ID
+inner join city as departurecity on trip.Id_departCity = departurecity.ID
+inner join city as destinationcity on trip.Id_destinationCity = destinationcity.ID
 	-- drop view ReservationView;
 
-select Reservation.Id_trip, sum(Number_pple) as 'reserved', (trip.capacity - sum(Number_pple)), departurecity.Name as 'Departure', destinationcity.Name as 'Destination' from Reservation 
-inner join trip on Reservation.Id_trip = trip.ID 
-inner join city as departurecity on trip.Id_departCity = departurecity.ID 
-inner join city as destinationcity on trip.Id_destinationCity = destinationcity.ID 
-group by Reservation.Id_trip, departurecity.Name, destinationcity.Name, trip.capacity 
-order by sum(Number_pple)
+--select Reservation.Id_trip, sum(Number_pple) as 'reserved', (trip.capacity - sum(Number_pple)), departurecity.Name as 'Departure', destinationcity.Name as 'Destination' from Reservation 
+--inner join trip on Reservation.Id_trip = trip.ID 
+--inner join city as departurecity on trip.Id_departCity = departurecity.ID 
+--inner join city as destinationcity on trip.Id_destinationCity = destinationcity.ID 
+--group by Reservation.Id_trip, departurecity.Name, destinationcity.Name, trip.capacity 
+--order by sum(Number_pple)
 
-delete from Trip where id = 1
-
-select 
-	trip.ID,
-	DepartureCity.Name AS Departure,
-	DestinationCity.Name AS Destination, transport.[Type] AS Transport, date_depart as 'From', date_return 'To', hotel.name AS Hotel,
-	hotel.quality AS Number_Star, trip.price AS Price, trip.capacity AS Capacity from trip
-	inner join transport on trip.id_transport = transport.id
-	inner join hotel on trip.id_hotel = hotel.id
-	INNER JOIN City AS DepartureCity ON Trip.Id_departCity = DepartureCity.ID
-	INNER JOIN City AS DestinationCity ON Trip.Id_destinationCity = DestinationCity.ID;
+--select 
+	--trip.ID,
+	--DepartureCity.Name AS Departure,
+	--DestinationCity.Name AS Destination, transport.[Type] AS Transport, date_depart as 'From', date_return 'To', hotel.name AS Hotel,
+	--hotel.quality AS Number_Star, trip.price AS Price, trip.capacity AS Capacity from trip
+	--inner join transport on trip.id_transport = transport.id
+	--inner join hotel on trip.id_hotel = hotel.id
+	--INNER JOIN City AS DepartureCity ON Trip.Id_departCity = DepartureCity.ID
+	--INNER JOIN City AS DestinationCity ON Trip.Id_destinationCity = DestinationCity.ID;
 
 
-	select 
-	Reservation.ID,
-	CONCAT(client.Name, ' ', client.Surname) as Client, 
-	departurecity.Name as 'Departure', 
-	destinationcity.Name as 'Destination', 
-	(Reservation.Number_pple * Trip.Price) as 'Total (CZK)',
-	Reservation.Status
-	from Reservation
-	inner join client on reservation.id_client = client.ID
-	inner join trip on reservation.id_trip = trip.ID
-	inner join city as departurecity on trip.Id_departCity = departurecity.ID
-	inner join city as destinationcity on trip.Id_destinationCity = destinationcity.ID
+--select 
+	--Reservation.ID,
+	--CONCAT(client.Name, ' ', client.Surname) as Client, 
+	--departurecity.Name as 'Departure', 
+	--destinationcity.Name as 'Destination', 
+	--(Reservation.Number_pple * Trip.Price) as 'Total (CZK)',
+	--Reservation.Status
+	--from Reservation
+	--inner join client on reservation.id_client = client.ID
+	--inner join trip on reservation.id_trip = trip.ID
+	--inner join city as departurecity on trip.Id_departCity = departurecity.ID
+	--inner join city as destinationcity on trip.Id_destinationCity = destinationcity.ID
 
-select * from Reservation
+--select * from Reservation
