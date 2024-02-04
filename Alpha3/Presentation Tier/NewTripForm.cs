@@ -25,27 +25,39 @@ namespace Alpha3.Presentation_Tier
 
         private void btnNewTrip_Click(object sender, EventArgs e)
         {
-            string[] transport = this.comboTransport.Text.Split(' ');
-            string[] hotel = this.comboHotel.Text.Split(' ');
-            string[] depart = this.comboCity.Text.Split(' ');
-            string[] destin = this.comboCity2.Text.Split(' ');
+                string[] transport = this.comboTransport.Text.Split(' ');
+                string[] hotel = this.comboHotel.Text.Split(' ');
+                string[] depart = this.comboCity.Text.Split(' ');
+                string[] destin = this.comboCity2.Text.Split(' ');
 
-            int idTransport = int.Parse(transport[0]);
-            int idHotel = int.Parse(hotel[0]);
-            int idCity1 = int.Parse(depart[0]);
-            int idCity2 = int.Parse(destin[0]);
-            int capacity = (int)(this.numericUpDown1.Value);
-            DateTime dateDepart = this.dateTimePicker1.Value;
-            DateTime dateReturn = this.dateTimePicker2.Value;
-            float price = float.Parse(this.tBxPrice.Text);
+                try{
+                    int idTransport = int.Parse(transport[0]);
+                    int idHotel = int.Parse(hotel[0]);
+                    int idCity1 = int.Parse(depart[0]);
+                    int idCity2 = int.Parse(destin[0]);
+                    int capacity = (int)(this.numericUpDown1.Value);
+                    DateTime dateDepart = this.dateTimePicker1.Value;
+                    DateTime dateReturn = this.dateTimePicker2.Value;
+                    float price;
+
+                    if (float.TryParse(this.tBxPrice.Text, out price))
+                    {
+                        Trip trip = new Trip(idTransport, idHotel, idCity1, idCity2, dateDepart, dateReturn, price, capacity);
+                        trip.AddToDB();
+                        this.trippanel.LoadTrip();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Price must be a proper number");
+                    }
+
+                    this.Hide();
+                } catch (FormatException ex) {
+                    MessageBox.Show("All fields must be filled happened. Try again.");
+
+                }
 
 
-            //MessageBox.Show("New Trip OK!");
-            // get id from those strings
-            Trip trip = new Trip(idTransport, idHotel, idCity1, idCity2, dateDepart, dateReturn, price, capacity);
-            trip.AddToDB();
-            this.trippanel.LoadTrip();
-            this.Hide();
         }
 
         private void NewTripForm_Load(object sender, EventArgs e)

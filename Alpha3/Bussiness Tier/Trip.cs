@@ -45,8 +45,15 @@ namespace Alpha3.Bussiness_Tier
             Id_hotel = id_hotel;
             Id_departCity = id_departCity;
             Id_destinationCity = id_destinationCity;
-            Date_depart = date_depart;
-            Date_return = date_return;
+            if (date_return > date_depart)
+            {
+                Date_depart = date_depart;
+                Date_return = date_return;
+            }
+            else
+            {
+                MessageBox.Show("Date_return must be after Date_depart.");
+            }
             Price = price;
             Capacity = capa;
         }

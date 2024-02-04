@@ -48,7 +48,7 @@ namespace Alpha3.Data_Tier
                     tr.Date_depart = (DateTime)reader["Date_depart"];
                     tr.Date_return = (DateTime)reader["Date_return"];
                     tr.Price = (float)((decimal) reader["Price"]);
-                    tr.Capacity = (int)reader["Capacity"];
+                    tr.Capacity = reader["Capacity"] == null? (int)reader["Capacity"]: 0;
                 }
                 
             }
@@ -80,7 +80,7 @@ namespace Alpha3.Data_Tier
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Trip added");
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }

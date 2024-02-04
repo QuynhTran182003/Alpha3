@@ -30,7 +30,8 @@ namespace Alpha3.Presentation_Tier
         {
             try
             {
-                selectedTrip.Capacity = int.Parse(tBxNewCapa.Text);
+                int capacity = 0;
+                selectedTrip.Capacity = int.TryParse(tBxNewCapa.Text, out capacity) ? int.Parse(tBxNewCapa.Text) : capacity;
                 selectedTrip.Price = float.Parse(tBxNewPrice.Text);
 
                 this.Hide();
