@@ -16,11 +16,12 @@ namespace Alpha3
         [STAThread]
         static void Main()
         {
+            CreateDatabase.CreateDatabaseQuery("../../Data Tier/SQLQuery.sql");
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new IntroForm());
 
-            CreateDatabase.CreateDatabaseQuery("../../Data Tier/SQLQuery.sql");
         }
 
         public static int GetNumberOfColumns(string filePath)
