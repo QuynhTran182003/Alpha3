@@ -50,12 +50,11 @@ namespace Alpha3.Presentation_Tier
             string departure = dataGridView1.Rows[e.RowIndex].Cells["Departure"].FormattedValue.ToString();
             string destination = dataGridView1.Rows[e.RowIndex].Cells["Destination"].FormattedValue.ToString();
             float total = (float) Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["Total (CZK)"].FormattedValue.ToString());
-            //todo
-            bool a = (bool) dataGridView1.Rows[e.RowIndex].Cells["Status"].FormattedValue;
+            bool a = Convert.ToBoolean(dataGridView1.Rows[e.RowIndex].Cells["Status"].FormattedValue);
 
             Console.WriteLine(a);
-            /*EditReservationForm erf = new EditReservationForm(this);
-            erf.ShowDialog()*/
+            EditReservationForm erf = new EditReservationForm(id, client, departure, destination, total, a, this);
+            erf.ShowDialog();
         }
     }
 }

@@ -83,11 +83,11 @@ namespace Alpha3.Bussiness_Tier
             //error handling
         }
 
-        public void UpdateDB(int id)
+        public void UpdateDB()
         {
             ReservationDAO reservationDAO = new ReservationDAO();
 
-            reservationDAO.Update(id, this);
+            reservationDAO.Update(this.id, this);
             //error handling
         }
 

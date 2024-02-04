@@ -150,6 +150,7 @@
             this.btnHotel.TabIndex = 6;
             this.btnHotel.Text = "Hotel";
             this.btnHotel.UseVisualStyleBackColor = false;
+            this.btnHotel.Click += new System.EventHandler(this.btnHotel_Click);
             // 
             // btnCity
             // 
@@ -166,6 +167,7 @@
             this.btnCity.TabIndex = 5;
             this.btnCity.Text = "City";
             this.btnCity.UseVisualStyleBackColor = false;
+            this.btnCity.Click += new System.EventHandler(this.btnCity_Click);
             // 
             // label1
             // 
@@ -173,7 +175,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(71, 42);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(224, 46);
+            this.label1.Size = new System.Drawing.Size(97, 20);
             this.label1.TabIndex = 4;
             this.label1.Text = "Dashboard";
             // 

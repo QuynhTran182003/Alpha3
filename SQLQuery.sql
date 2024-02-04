@@ -152,3 +152,4 @@ select
 	inner join city as departurecity on trip.Id_departCity = departurecity.ID
 	inner join city as destinationcity on trip.Id_destinationCity = destinationcity.ID
 
+select * from Reservation

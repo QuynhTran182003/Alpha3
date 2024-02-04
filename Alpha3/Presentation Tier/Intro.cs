@@ -62,5 +62,19 @@ namespace Alpha3
         private void IntroForm_Load(object sender, EventArgs e)
         {
         }
+
+        private void btnHotel_Click(object sender, EventArgs e)
+        {
+            clienPanel1.Visible = false;
+            tripPanel1.Visible = false;
+            reservationPanel1.Visible = false;
+        }
+
+        private void btnCity_Click(object sender, EventArgs e)
+        {
+            clienPanel1.Visible = false;
+            tripPanel1.Visible = false;
+            reservationPanel1.Visible = false;
+        }
     }
 }

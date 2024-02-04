@@ -61,9 +61,21 @@ namespace Alpha3.Data_Tier
             return r;
         } 
 
-        public void Update(int id, ReservationDAO newEle)
+        public void Update(int id, Reservation newEle)
         {
-            throw new NotImplementedException();
+            SqlCommand cmd = new SqlCommand("update Reservation set Status = @Status where ID = @Id ", DatabaseSingleton.GetInstance());
+            cmd.Parameters.AddWithValue("@Id", id);
+            cmd.Parameters.AddWithValue("@Status", newEle.Status? 1 : 0);
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Reservation updated successfully");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            DatabaseSingleton.CloseConnection();
         }
 
         
@@ -86,10 +98,6 @@ namespace Alpha3.Data_Tier
             DatabaseSingleton.CloseConnection();
         }
 
-        public void Update(int id, Reservation newEle)
-        {
-            throw new NotImplementedException();
-        }
 
         public void GetAll(DataGridView dataView)
         {

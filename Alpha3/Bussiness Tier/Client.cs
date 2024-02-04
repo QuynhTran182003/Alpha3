@@ -72,35 +72,57 @@ namespace Alpha3.Bussiness_Tier
                 throw;
             }
         }
-    
+
         public void AddToDB()
         {
-            ClientDAO clientDAO = new ClientDAO();
-            clientDAO.Save(this);
-            //error handling
+            try
+            {
+                ClientDAO clientDAO = new ClientDAO();
+                clientDAO.Save(this);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in AddToDB: {ex.Message}");
+            }
         }
 
         public void UpdateDB(int id)
         {
-            ClientDAO clientDAO = new ClientDAO();
-            clientDAO.Update(id, this);
-            //error handling
+            try
+            {
+                ClientDAO clientDAO = new ClientDAO();
+                clientDAO.Update(id, this);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in UpdateDB: {ex.Message}");
+            }
         }
 
         public void Delete(int id)
         {
-            ClientDAO clientDAO = new ClientDAO();
-            clientDAO.Delete(id);
-            //error handling
-
+            try
+            {
+                ClientDAO clientDAO = new ClientDAO();
+                clientDAO.Delete(id);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in Delete: {ex.Message}");
+            }
         }
 
         public void GetAllDB(DataGridView dataGridView)
         {
-            ClientDAO clientDAO = new ClientDAO();
-            clientDAO.GetAll(dataGridView);
-            //error handling
-
+            try
+            {
+                ClientDAO clientDAO = new ClientDAO();
+                clientDAO.GetAll(dataGridView);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in GetAllDB: {ex.Message}");
+            }
         }
     }
 }

@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -48,12 +49,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bussiness Tier\Client.cs" />
+    <Compile Include="Bussiness Tier\Hotel.cs" />
     <Compile Include="Bussiness Tier\IBaseClass.cs" />
     <Compile Include="Bussiness Tier\Reservation.cs" />
     <Compile Include="Bussiness Tier\Trip.cs" />
     <Compile Include="Data Tier\ClientDAO.cs" />
     <Compile Include="Data Tier\CreateDatabase.cs" />
     <Compile Include="Data Tier\DatabaseSingleton.cs" />
+    <Compile Include="Data Tier\HotelDAO.cs" />
     <Compile Include="Data Tier\IDAO.cs" />
     <Compile Include="Data Tier\ReservationDAO.cs" />
     <Compile Include="Data Tier\TripDAO.cs" />
@@ -74,6 +77,12 @@
     </Compile>
     <Compile Include="Presentation Tier\EditTripForm.Designer.cs">
       <DependentUpon>EditTripForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation Tier\HotelPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation Tier\HotelPanel.Designer.cs">
+      <DependentUpon>HotelPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation Tier\NewClientForm.cs">
       <SubType>Form</SubType>
@@ -145,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation Tier\EditTripForm.resx">
       <DependentUpon>EditTripForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation Tier\HotelPanel.resx">
+      <DependentUpon>HotelPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation Tier\NewClientForm.resx">
       <DependentUpon>NewClientForm.cs</DependentUpon>
