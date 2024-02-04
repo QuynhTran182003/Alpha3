@@ -1,5 +1,29 @@
+use master
+drop database if exists Cestovni_Agentura;
+drop login admin_user;
+
+
+go
 CREATE DATABASE Cestovni_Agentura;
+IF NOT EXISTS 
+    (SELECT name
+     FROM master.sys.server_principals
+     WHERE name = 'admin_user')
+BEGIN
+    CREATE LOGIN admin_user WITH PASSWORD = 'adminadmin';
+END
+
+--create login admin_user with password='adminadmin';
+go
+
 USE Cestovni_Agentura;
+
+begin transaction;
+go
+CREATE USER [admin_user] FOR LOGIN [admin_user] WITH DEFAULT_SCHEMA=[dbo];
+GO
+ALTER ROLE [db_owner] ADD MEMBER [admin_user];
+commit;
 
 CREATE TABLE Client(
 	ID int primary key identity(1,1),
@@ -44,7 +68,6 @@ CREATE TABLE Trip(
 );
 ALTER TABLE Trip
 ADD Capacity int check (Capacity > 0);
-
 
 CREATE TABLE Reservation(
 	ID int primary key identity(1,1),

@@ -20,7 +20,7 @@ namespace Alpha3
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new IntroForm());
 
-            CreateDatabase.CreateDatabaseQuery("SQLQuery.sql");
+            CreateDatabase.CreateDatabaseQuery("../../Data Tier/SQLQuery.sql");
         }
 
         public static int GetNumberOfColumns(string filePath)

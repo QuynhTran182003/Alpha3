@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Security.Policy;
 
 namespace Alpha3.Data_Tier
 {
@@ -33,7 +34,6 @@ namespace Alpha3.Data_Tier
             }
             catch (Exception ex)
             {
-                //Program.WriteErrorToXml(ex, Program.LoggerPath);
                 DatabaseSingleton.CloseConnection();
                 return false;
             }
